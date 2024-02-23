@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var decel = 0.9
-@export var speed = 400
+@export var friction = 0.2
+@export var speed = 500
 var input_direction = 0
 
 func get_input():
@@ -12,5 +12,5 @@ func _physics_process(delta):
 	if input_direction[0] != 0 or input_direction[1] != 0:
 		velocity = input_direction * speed
 	else:
-		velocity = velocity * decel
+		velocity = velocity * (1 - friction)
 	move_and_slide()
