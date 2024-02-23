@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dscldkihxsfdw"]
+[gd_scene load_steps=7 format=3 uid="uid://dscldkihxsfdw"]
 
 [ext_resource type="Texture2D" uid="uid://c77wfn031wb74" path="res://assets/grass.png" id="1_0xia4"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_vuirp"]
+[ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="3_dante"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i641"]
 texture = ExtResource("1_0xia4")
@@ -11,6 +13,20 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_8i641")
 
-[node name="TileMap" type="TileMap"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln47u"]
+size = Vector2(64, 64)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8tpjq")
 format = 2
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_vuirp")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_dante")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_ln47u")
