@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg0l5s6v03ct"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_dd8h5"]
+[ext_resource type="PackedScene" uid="uid://cv7nfmyjoru4r" path="res://tile_map.tscn" id="2_6ifg8"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(0, -1)
+script = ExtResource("1_dd8h5")
+
+[node name="TileMap" parent="." instance=ExtResource("2_6ifg8")]
+scale = Vector2(0.1, 0.1)
