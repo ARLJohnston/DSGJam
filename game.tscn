@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dscldkihxsfdw"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_cnoye"]
-[ext_resource type="Texture2D" uid="uid://c50bwl5140bgh" path="res://assets/grass.png" id="2_y88yb"]
+[ext_resource type="Texture2D" uid="uid://c77wfn031wb74" path="res://assets/grass.png" id="2_y88yb"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="3_vihyh"]
 [ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="4_ckqh4"]
 

@@ -4,6 +4,8 @@ extends Node2D
 
 const BASE_SIZE = Vector2(256,256)
 
+var items = ItemProtoset
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var perlin_noise = FastNoiseLite.new()
