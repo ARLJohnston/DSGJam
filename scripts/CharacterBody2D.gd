@@ -26,7 +26,6 @@ func move(dir):
 		tween.kill()
 
 func _physics_process(delta):
-	
 	get_input()
 	if input_direction != Vector2(0, 0):
 		move(input_direction)
