@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
-   sodipodi:docname="plant.svg"
+   sodipodi:docname="water.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -40,40 +40,26 @@
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#00ff00;stroke:#00a800;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
+       style="fill:#00ffff;stroke:#008080;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
        id="path1"
        cx="91.07843"
        cy="74.758209"
-       r="32" />
+       r="32"
+       inkscape:export-filename="plant.png"
+       inkscape:export-xdpi="24.945908"
+       inkscape:export-ydpi="24.945908" />
+    <path
+       style="fill:#ffffff;stroke:#008080;stroke-width:1.165;stroke-linecap:square;stroke-linejoin:round"
+       d="m 91.07843,48.7477 c 25.94105,31.617868 29.46091,48.630444 0,51.184466 -27.509724,-2.305099 -22.706816,-20.814539 0,-51.184466 z"
+       id="path5"
+       sodipodi:nodetypes="ccc" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer5"
-     inkscape:label="Layer 2">
-    <path
-       style="fill:#ffffff;stroke:#00a800;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
-       d="m 86.214204,100.08893 9.460401,1.42718 -4.596175,-9.0118 c 40.19295,-14.401515 1.383332,-37.814079 1.606396,-44.805054 -20.741564,14.244482 -36.0419,29.875958 -8.205735,43.771596 z"
-       id="path2"
-       sodipodi:nodetypes="cccccc" />
-  </g>
+     inkscape:label="Layer 2" />
   <g
      inkscape:groupmode="layer"
      id="layer6"
-     inkscape:label="Layer 3">
-    <path
-       style="fill:#ffffff;stroke:#00a800;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
-       d="m 89.339411,57.06765 c -5.616767,9.474402 -4.658832,20.098479 -1.698006,31.072788"
-       id="path3"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#00a800;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
-       d="m 80.265621,64.537224 c 2.753019,1.370794 4.133353,3.405995 14.965693,0.86623"
-       id="path4"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:none;stroke:#00a800;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
-       d="m 78.418136,76.399043 c 2.753019,1.370794 4.133353,3.405995 14.965693,0.86623"
-       id="path5"
-       sodipodi:nodetypes="cc" />
-  </g>
+     inkscape:label="Layer 3" />
 </svg>

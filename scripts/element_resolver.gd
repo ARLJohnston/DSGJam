@@ -1,15 +1,24 @@
+extends Node
+
 class_name ElementResolver
+
+signal element_merged(first,second,result)
+signal element_added(element)
 
 var elements_definition = {
 	"null": Element.new("null", [["fire", "water"], ["air", "earth"]]),
-	"fire": Element.new("fire"),
-	"water": Element.new("water"),
-	"air": Element.new("air"),
-	"earth": Element.new("earth"),
-	"ice": Element.new("ice", [["water", "air"]]),
-	"mud": Element.new("mud", [["water", "earth"]]),
-	"lightning": Element.new("lightning", [["fire", "air"]]),
-	"lava": Element.new("lava", [["fire", "earth"]])
+	"fire": Element.new("fire", [["lightning", "earth"]]), 
+	"water": Element.new("water", [["ice", "fire"]]), 
+	"air": Element.new("air", [["steam", "ice"]]), 
+	"earth": Element.new("earth", [["ice", "mud"]]),
+	"ice": Element.new("ice", [["water", "air"]]), 
+	"mud": Element.new("mud", [["water", "earth"]]), 
+	"lightning": Element.new("lightning", [["fire", "air"]]), 
+	"lava": Element.new("lava", [["fire", "earth"]]),
+	"steam": Element.new("steam", [["lava", "ice"]]),
+	"clay": Element.new("clay", [["fire", "mud"]]),
+	"poison": Element.new("poison", [["mud", "steam"]]),
+	"healing": Element.new("healing", [["lightning", "poison"]])
 }
 
 var combomap = generate_combomap(elements_definition)
@@ -40,10 +49,15 @@ func append_key(key, innerkey, value, dict):
 func merge_elements(to_add, element_pool, to_add_order=to_add.keys()):
 	var new_pool = element_pool.duplicate()
 	for new_element in to_add.keys():
+		if new_element == "null":
+			continue
+			
 		if new_pool.has(new_element):
 			new_pool[new_element] += 1;
 		else:
 			new_pool[new_element] = 1;
+			
+		element_added.emit(new_element)
 	print(new_pool)
 	var order = to_add_order.duplicate()
 	new_pool = resolve_elements(new_pool, order)
@@ -76,6 +90,7 @@ func resolve_element(name, intermediate_copy, evaluation_keys=evaluation_order):
 
 			deduct_element(name, intermediate_copy)
 			deduct_element(combo, intermediate_copy)
+			element_merged.emit(name, combo, new_element)
 
 			if new_element == "null":
 				return true

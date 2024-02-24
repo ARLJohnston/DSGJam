@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $CharacterBody2D
+@onready var player = $Player
 @onready var tilemap = $TileMap
 
 @onready var plant_scene = preload("res://scenes/Plant.tscn")
@@ -15,7 +15,7 @@ var plants: Array[Plant] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Shift player to the center of the world
-	player.position = Vector2(BASE_SIZE.x * TILE_SIZE / 2, BASE_SIZE.y * TILE_SIZE / 2)
+	player.position = Vector2(BASE_SIZE.x * TILE_SIZE / 2 + TILE_SIZE/2, BASE_SIZE.y * TILE_SIZE / 2 + TILE_SIZE/2)
 
 	_gen_plants()
 	_gen_world()

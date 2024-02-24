@@ -6,7 +6,7 @@ func before_each():
 	resolver = ElementResolver.new();
 
 func test_evaluation_order():
-	assert_eq(resolver.evaluation_order, ["null", "fire", "water", "air", "earth", "ice", "mud", "lightning", "lava"])
+	assert_eq(resolver.evaluation_order, ["null", "fire", "water", "air", "earth", "ice", "mud", "lightning", "lava", "steam", "clay", "poison", "healing"])
 	
 func test_generate_combo_map():
 	var result = resolver.generate_combomap(resolver.elements_definition)
@@ -49,7 +49,7 @@ func test_multiple_potential_combos():
 	
 func test_complex_resolve():
 	var element_quantities = {"fire": 3, "air": 1, "water": 2, "earth": 3}
-	var expected = {"lightning": 1, "earth": 3}
+	var expected = {"lava": 1, "earth": 1}
 	var result = resolver.resolve_elements(element_quantities)
 	assert_eq(expected, result)
 	
@@ -63,6 +63,6 @@ func test_complex_resolve_with_respect_to_elements():
 func test_merge_elements():
 	var existing_pool = {"mud": 2, "fire": 3}
 	var additional_stuff = {"air": 1}
-	var expected = {"mud": 2, "lightning": 1, "fire": 2}
+	var expected = {"lightning": 1, "clay": 2}
 	var result = resolver.merge_elements(additional_stuff, existing_pool, ["air", "water"])
 	assert_eq(result, expected)
