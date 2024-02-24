@@ -15,6 +15,7 @@ script = ExtResource("1_r7x67")
 shape = SubResource("CircleShape2D_rllne")
 
 [node name="ElementDisplay" parent="." instance=ExtResource("1_e8owc")]
+z_index = 15
 offset_left = -118.0
 offset_top = -152.0
 offset_right = 122.0

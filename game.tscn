@@ -44,3 +44,6 @@ format = 2
 
 [node name="Grandma" parent="." instance=ExtResource("5_q0qqt")]
 position = Vector2(494, 352)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.12549, 0.12549, 0.12549, 1)

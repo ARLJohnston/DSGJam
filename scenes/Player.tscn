@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfjdrnmaxxk86"]
+[gd_scene load_steps=12 format=3 uid="uid://bfjdrnmaxxk86"]
 
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_jkhnt"]
 [ext_resource type="Texture2D" uid="uid://bnnsvuradd2dn" path="res://assets/shadow.png" id="2_71yua"]
@@ -70,6 +70,15 @@ _data = {
 "bounce": SubResource("Animation_oa75o")
 }
 
+[sub_resource type="Gradient" id="Gradient_arugq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jq5y7"]
+gradient = SubResource("Gradient_arugq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.79602, 0.169154)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 script = ExtResource("1_jkhnt")
@@ -96,3 +105,7 @@ shape = SubResource("RectangleShape2D_05268")
 libraries = {
 "": SubResource("AnimationLibrary_0bl43")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(10, 10)
+texture = SubResource("GradientTexture2D_jq5y7")
