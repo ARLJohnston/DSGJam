@@ -142,3 +142,13 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 57.0
+offset_bottom = 37.0
+text = "honk
+"

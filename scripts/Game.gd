@@ -27,6 +27,8 @@ func _gen_plants():
 		plant.position = Vector2(randi_range(0, BASE_SIZE.x - 1) * TILE_SIZE, randi_range(0, BASE_SIZE.y - 1) * TILE_SIZE)
 		plant.position += Vector2(TILE_SIZE / 2, TILE_SIZE / 2)
 
+		plant.get_node("Area2D").connect("body_entered", _on_plant_overlapped.bind(plant))
+
 		add_child(plant)
 		plants.append(plant)
 
@@ -54,6 +56,16 @@ func _gen_world():
 
 
 			tilemap.set_cell(0, Vector2(x, y), 2, Vector2(tile, 0))
+
+func _on_plant_overlapped(_body, plant):
+	var label = $CanvasLayer/Label
+
+	var stats = plant.plant_stats
+	var text = ""
+	for k in stats.keys():
+		text += k + ": " + str(stats[k]) + "\n"
+
+	label.text = text
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
