@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0xo8cs1sewvs"]
+
+[ext_resource type="Texture2D" uid="uid://dhqm1t1d1nbbm" path="res://assets/elements/earth.png" id="1_1dleu"]
+
+[sub_resource type="Theme" id="Theme_8m3ix"]
+
+[node name="ElementNode" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1dleu")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 45.0
+offset_bottom = 46.0
+theme = SubResource("Theme_8m3ix")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.270588, 0.121569, 1)
+theme_override_constants/outline_size = 5
+text = "1"
