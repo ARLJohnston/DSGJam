@@ -80,7 +80,7 @@ gradient = SubResource("Gradient_ru5v0")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 script = ExtResource("1_jkhnt")
 

@@ -1,6 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwm6silf57nhg"]
+[gd_scene load_steps=9 format=3 uid="uid://dwm6silf57nhg"]
 
 [ext_resource type="Script" path="res://scripts/Plant.gd" id="1_1ulql"]
+[ext_resource type="Texture2D" uid="uid://cpni2dnxqi8gr" path="res://assets/flower_base_1.png" id="2_16vrx"]
+[ext_resource type="Script" path="res://scenes/flower_base.gd" id="3_idnd5"]
+[ext_resource type="Texture2D" uid="uid://dmtqq0uhv5lwn" path="res://assets/flower_petals_1.png" id="4_c0xc2"]
+[ext_resource type="Script" path="res://scripts/flower_petals.gd" id="5_jn4m5"]
+[ext_resource type="PackedScene" uid="uid://r85c3ceisq0f" path="res://scenes/ProximityElementDisplay.tscn" id="6_4rrl4"]
 
 [sub_resource type="Gradient" id="Gradient_qi8mr"]
 offsets = PackedFloat32Array(0, 0.603896)
@@ -29,9 +34,13 @@ fill_from = Vector2(0.5, 0.5)
 script = ExtResource("1_1ulql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_wwgaf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="flower_base" type="Sprite2D" parent="."]
+z_index = 3
+texture = ExtResource("2_16vrx")
+script = ExtResource("3_idnd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5e0vo")
@@ -40,3 +49,10 @@ shape = SubResource("CircleShape2D_5e0vo")
 scale = Vector2(20, 20)
 energy = 0.5
 texture = SubResource("GradientTexture2D_iautv")
+
+[node name="flower_petals" type="Sprite2D" parent="flower_base"]
+z_index = -1
+texture = ExtResource("4_c0xc2")
+script = ExtResource("5_jn4m5")
+
+[node name="ProximityElementDisplay" parent="." instance=ExtResource("6_4rrl4")]

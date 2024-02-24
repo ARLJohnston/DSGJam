@@ -56,9 +56,6 @@ func _gen():
 					new_plant.position = _tilemap_to_position(candidate_position)
 					break
 
-
-		new_plant.get_node("Area2D").connect("body_entered", _on_plant_overlapped.bind(new_plant))
-
 		add_child(new_plant)
 		plants.append(new_plant)
 
@@ -97,16 +94,6 @@ func _gen():
 	for x in range(-2, 3):
 		for y in range(-2, 3):
 			tilemap.set_cell(0, origin + Vector2i(x, y), 2, Vector2(3, 0))
-
-func _on_plant_overlapped(_body, plant):
-	var label = $CanvasLayer/Label
-
-	var stats = plant.plant_stats
-	var text = ""
-	for k in stats.keys():
-		text += k + ": " + str(stats[k]) + "\n"
-
-	label.text = text
 
 func _position_to_tilemap(pos: Vector2) -> Vector2i:
 	return Vector2i(int(pos.x / TILE_SIZE), int(pos.y / TILE_SIZE))

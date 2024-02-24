@@ -6,19 +6,19 @@ signal element_merged(first,second,result)
 signal element_added(element)
 
 var elements_definition = {
-	"null": Element.new("null", [["fire", "water"], ["air", "earth"]]),
-	"fire": Element.new("fire", [["lightning", "earth"]]), 
-	"water": Element.new("water", [["ice", "fire"]]), 
-	"air": Element.new("air", [["steam", "ice"]]), 
-	"earth": Element.new("earth", [["ice", "mud"]]),
-	"ice": Element.new("ice", [["water", "air"]]), 
-	"mud": Element.new("mud", [["water", "earth"]]), 
-	"lightning": Element.new("lightning", [["fire", "air"]]), 
-	"lava": Element.new("lava", [["fire", "earth"]]),
-	"steam": Element.new("steam", [["lava", "ice"]]),
-	"clay": Element.new("clay", [["fire", "mud"]]),
-	"poison": Element.new("poison", [["mud", "steam"]]),
-	"healing": Element.new("healing", [["lightning", "poison"]])
+	"null": Element.new("null", [["fire", "water"], ["air", "earth"]], "#FFFFFF"),
+	"fire": Element.new("fire", [["lightning", "earth"]], "#ff0000"), 
+	"water": Element.new("water", [["ice", "fire"]], "#00ffff"), 
+	"air": Element.new("air", [["steam", "ice"]], "#cccccc"), 
+	"earth": Element.new("earth", [["ice", "mud"]], "#00ff00"),
+	"ice": Element.new("ice", [["water", "air"]], "#00ccff"), 
+	"mud": Element.new("mud", [["water", "earth"]], "#a05a2c"), 
+	"lightning": Element.new("lightning", [["fire", "air"]], "#a05a2c"), 
+	"lava": Element.new("lava", [["fire", "earth"]], "#800000"),
+	"steam": Element.new("steam", [["lava", "ice"]], "#4d4d4d"),
+	"clay": Element.new("clay", [["fire", "mud"]], "#803300"),
+	"poison": Element.new("poison", [["mud", "steam"]], "#660080"),
+	"healing": Element.new("healing", [["lightning", "poison"]], "#00d455")
 }
 
 var combomap = generate_combomap(elements_definition)

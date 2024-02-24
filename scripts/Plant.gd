@@ -8,19 +8,7 @@ const plant_types = [
 	"water",
 ]
 
-const plant_type_to_color = {
-	"air": Color(1, 0.5, 1, 1),
-	"earth": Color(0, 1, 0, 1),
-	"fire": Color(1, 0, 0, 1),
-	"water": Color(0, 0, 1, 1),
-}
-
-@export var plant_stats = {
-	"air": 0,
-	"earth": 0,
-	"fire": 0,
-	"water": 0,
-}
+@export var plant_stats = {}
 
 @export var dominant_plant_type = "air"
 
@@ -38,8 +26,10 @@ func _ready():
 
 		plant_stats[secondary_type] = randi() % 1 + 1
 
+	$ProximityElementDisplay.set_data(plant_stats)
+
 	sprite.texture.gradient = sprite.texture.gradient.duplicate()
-	sprite.texture.gradient.set_color(0, plant_type_to_color[dominant_plant_type])
+	# sprite.texture.gradient.set_color(0, plant_type_to_color[dominant_plant_type])
 
 func _process(delta):
 	pass

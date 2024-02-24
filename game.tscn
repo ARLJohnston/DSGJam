@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbump6hsbfqii"]
+[gd_scene load_steps=7 format=3 uid="uid://bbump6hsbfqii"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_cnoye"]
 [ext_resource type="Texture2D" uid="uid://prljomc5fvax" path="res://assets/tiles/tileset.png" id="3_hcgq6"]
 [ext_resource type="PackedScene" uid="uid://vwso52yj6tcd" path="res://scenes/Player.tscn" id="4_3tirm"]
+[ext_resource type="PackedScene" path="res://scenes/Grandma.tscn" id="5_q0qqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53jj7"]
 texture = ExtResource("3_hcgq6")
@@ -36,14 +37,9 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 57.0
-offset_bottom = 37.0
-text = "honk
-"
-
 [node name="Player" parent="." instance=ExtResource("4_3tirm")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Grandma" parent="." instance=ExtResource("5_q0qqt")]
+position = Vector2(494, 352)
