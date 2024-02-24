@@ -12,7 +12,7 @@ func _ready():
 	new_position = position
 
 func get_input():
-	input_direction = Input.get_vector("left", "right", "up", "down")
+	input_direction = round(Input.get_vector("left", "right", "up", "down"))
 
 func move(dir):
 	if !tween or !tween.is_running():
