@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dscldkihxsfdw"]
+[gd_scene load_steps=16 format=3 uid="uid://dscldkihxsfdw"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_cnoye"]
 [ext_resource type="Texture2D" uid="uid://bxa235oj6ard" path="res://assets/grass.png" id="2_y88yb"]
+[ext_resource type="Texture2D" uid="uid://prljomc5fvax" path="res://assets/tiles/tileset.png" id="3_3n8pf"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="3_vihyh"]
 [ext_resource type="Texture2D" uid="uid://bnnsvuradd2dn" path="res://assets/shadow.png" id="4_b3m78"]
 [ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="4_ckqh4"]
@@ -13,20 +14,8 @@ texture = ExtResource("2_y88yb")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="Gradient" id="Gradient_2cg3o"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
-colors = PackedColorArray(0, 0.420398, 0.646956, 1, 1, 0.719145, 0.275436, 1, 0.288649, 0.427782, 0.0883975, 1, 0.489622, 0.489622, 0.489622, 1, 1, 1, 1, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 4
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6smjt"]
-gradient = SubResource("Gradient_2cg3o")
-width = 256
-repeat = 1
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53jj7"]
-texture = SubResource("GradientTexture2D_6smjt")
+texture = ExtResource("3_3n8pf")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
