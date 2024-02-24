@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwm6silf57nhg"]
+[gd_scene load_steps=7 format=3 uid="uid://dwm6silf57nhg"]
 
 [ext_resource type="Script" path="res://scripts/Plant.gd" id="1_1ulql"]
 [ext_resource type="Texture2D" uid="uid://cpni2dnxqi8gr" path="res://assets/flower_base_1.png" id="2_16vrx"]
 [ext_resource type="Texture2D" uid="uid://dmtqq0uhv5lwn" path="res://assets/flower_petals_1.png" id="4_c0xc2"]
 [ext_resource type="PackedScene" uid="uid://r85c3ceisq0f" path="res://scenes/ProximityElementDisplay.tscn" id="6_4rrl4"]
 [ext_resource type="PackedScene" uid="uid://bmideyy4ofabo" path="res://scenes/ElementResolver.tscn" id="7_0qx6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lvts"]
+size = Vector2(124, 114)
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_1ulql")
@@ -20,3 +23,12 @@ texture = ExtResource("4_c0xc2")
 [node name="ProximityElementDisplay" parent="." instance=ExtResource("6_4rrl4")]
 
 [node name="ElementResolver" parent="." instance=ExtResource("7_0qx6e")]
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Pickup Area" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1lvts")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
