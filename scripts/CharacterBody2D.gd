@@ -8,6 +8,11 @@ var jumping = 0
 var new_position = Vector2(0, 0)
 var tween
 
+func _can_walk_to_noop(pos_) -> bool:
+	return true
+
+@export var can_walk_to_callback = _can_walk_to_noop
+
 func _ready():
 	position = Vector2(20, -20)
 	new_position = position
@@ -21,12 +26,16 @@ func get_input():
 		else:
 			input_direction = Vector2(0, 0)
 
-func move(dir):		
+func move(dir):
+	var next_position = position + 64*dir
+	if not can_walk_to_callback.call(next_position):
+		return
+
 	if !tween or !tween.is_running():
 		#move by 64*direction
 		tween = create_tween()
 
-		tween.tween_property(self, "position", position + 64*dir, 0.4)
+		tween.tween_property(self, "position", next_position, 0.2)
 		tween.play()
 		get_node("AnimationPlayer").play("bounce")
 	elif tween && !tween.is_running():
