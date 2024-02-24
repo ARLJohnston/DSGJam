@@ -11,6 +11,7 @@ func _physics_process(delta):
 	get_input()
 	if input_direction[0] != 0 or input_direction[1] != 0:
 		velocity = input_direction * speed
+		get_node("AnimationPlayer").play("bounce")
 	else:
 		velocity = velocity * (1 - friction)
 	move_and_slide()
