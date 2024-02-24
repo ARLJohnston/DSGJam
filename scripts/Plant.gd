@@ -8,8 +8,6 @@ var plant_types
 @export var dominant_plant_type = "air"
 @export var petal_rotation = 0
 
-@onready var sprite = $Sprite2D
-
 func _ready():
 	plant_types = $ElementResolver.elements_definition.keys()
 	plant_types.erase("null")
