@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://dscldkihxsfdw"]
+[gd_scene load_steps=17 format=3 uid="uid://dscldkihxsfdw"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_cnoye"]
-[ext_resource type="Texture2D" uid="uid://bxa235oj6ard" path="res://assets/grass.png" id="2_y88yb"]
+[ext_resource type="Texture2D" uid="uid://c77wfn031wb74" path="res://assets/grass.png" id="2_y88yb"]
 [ext_resource type="Texture2D" uid="uid://prljomc5fvax" path="res://assets/tiles/tileset.png" id="3_hcgq6"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="3_vihyh"]
 [ext_resource type="Texture2D" uid="uid://bnnsvuradd2dn" path="res://assets/shadow.png" id="4_b3m78"]
 [ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="4_ckqh4"]
 [ext_resource type="Script" path="res://scripts/FrogSprite.gd" id="5_iy4k3"]
 [ext_resource type="Texture2D" uid="uid://ckxfegxj2bctp" path="res://assets/frog_base.png" id="8_nqkr7"]
+[ext_resource type="Texture2D" uid="uid://bc0h245gfsqil" path="res://assets/grandma.png" id="9_0oauc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i641"]
 texture = ExtResource("2_y88yb")
@@ -91,7 +92,7 @@ _data = {
 "bounce": SubResource("Animation_oa75o")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_cnoye")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -141,3 +142,10 @@ offset_right = 57.0
 offset_bottom = 37.0
 text = "honk
 "
+
+[node name="GrandmaHouse" type="Node2D" parent="."]
+position = Vector2(512, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="GrandmaHouse"]
+scale = Vector2(2, 2)
+texture = ExtResource("9_0oauc")
