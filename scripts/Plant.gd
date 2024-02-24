@@ -2,20 +2,20 @@ class_name Plant
 extends Node2D
 
 const plant_types = [
-	Element.ElementType.FIRE,
-	Element.ElementType.WATER,
-	Element.ElementType.EARTH,
-	Element.ElementType.AIR
+	"air",
+	"earth",
+	"fire",
+	"water",
 ]
 
 const plant_type_to_color = {
-	Element.ElementType.FIRE: Color(1, 0, 0, 1),
-	Element.ElementType.WATER: Color(0, 0, 1, 1),
-	Element.ElementType.EARTH: Color(0, 1, 0, 1),
-	Element.ElementType.AIR: Color(1, 0.5, 1, 1)
+	"air": Color(1, 0.5, 1, 1),
+	"earth": Color(0, 1, 0, 1),
+	"fire": Color(1, 0, 0, 1),
+	"water": Color(0, 0, 1, 1),
 }
 
-@export var plant_type: Element.ElementType
+@export var plant_type = plant_types[0]
 
 @onready var sprite = $Sprite2D
 
