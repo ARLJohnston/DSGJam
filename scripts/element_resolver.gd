@@ -1,6 +1,9 @@
+extends Node
+
 class_name ElementResolver
 
 signal element_merged(first,second,result)
+signal element_added(element)
 
 var elements_definition = {
 	"null": Element.new("null", [["fire", "water"], ["air", "earth"]]),
@@ -46,10 +49,15 @@ func append_key(key, innerkey, value, dict):
 func merge_elements(to_add, element_pool, to_add_order=to_add.keys()):
 	var new_pool = element_pool.duplicate()
 	for new_element in to_add.keys():
+		if new_element == "null":
+			continue
+			
 		if new_pool.has(new_element):
 			new_pool[new_element] += 1;
 		else:
 			new_pool[new_element] = 1;
+			
+		element_added.emit(new_element)
 	print(new_pool)
 	var order = to_add_order.duplicate()
 	new_pool = resolve_elements(new_pool, order)
