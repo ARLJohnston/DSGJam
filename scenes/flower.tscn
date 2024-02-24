@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwgc32o15j4kw"]
+
+[ext_resource type="Texture2D" uid="uid://cpni2dnxqi8gr" path="res://assets/flower_base_1.png" id="1_44koq"]
+[ext_resource type="Script" path="res://scenes/flower_base.gd" id="2_2rvrk"]
+[ext_resource type="Texture2D" uid="uid://dmtqq0uhv5lwn" path="res://assets/flower_petals_1.png" id="2_388ua"]
+[ext_resource type="Script" path="res://scripts/flower_petals.gd" id="3_v5qls"]
+
+[node name="Flower" type="Node2D"]
+
+[node name="flower_base" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(5, 14)
+texture = ExtResource("1_44koq")
+script = ExtResource("2_2rvrk")
+
+[node name="flower_petals" type="Sprite2D" parent="flower_base"]
+z_index = -1
+texture = ExtResource("2_388ua")
+script = ExtResource("3_v5qls")
