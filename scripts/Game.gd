@@ -6,7 +6,8 @@ extends Node2D
 @onready var plant_scene = preload("res://scenes/Plant.tscn")
 
 
-const BASE_SIZE = Vector2i(32, 16)
+const PLANTS_ON_MAP = 10
+const BASE_SIZE = Vector2i(64, 64)
 const TILE_SIZE = 64
 
 var items = ItemProtoset
@@ -18,7 +19,22 @@ func _ready():
 	_gen()
 
 func _gen():
-	for i in range(5):
+	const threshold_to_tiles = {
+		# 0.5: 0,
+		# 0.6: 1,
+		0.33: 2,
+		0.66: 3,
+		1.0: 4,
+	}
+
+	var noise = FastNoiseLite.new()
+	noise.seed = randi()
+
+	for x in (BASE_SIZE.x):
+		for y in (BASE_SIZE.y):
+			tilemap.set_cell(0, Vector2(x, y), 2, Vector2(0, 0))
+
+	for i in range(PLANTS_ON_MAP):
 		var new_plant = plant_scene.instantiate()
 
 		if plants.size() == 0:
@@ -45,29 +61,41 @@ func _gen():
 		add_child(new_plant)
 		plants.append(new_plant)
 
-	# const threshold_to_tiles = {
-	# 	0.5: 0,
-	# 	0.6: 1,
-	# 	0.65: 2,
-	# 	0.8: 3,
-	# 	1.0: 4,
-	# }
+	var origin = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
+	for plant in plants:
+		var plant_tilemap_position = _position_to_tilemap(plant.position)
+		var current = origin
 
-	# var perlin_noise = FastNoiseLite.new()
-	# perlin_noise.seed = randi()
+		while current != plant_tilemap_position:
+			var diff = plant_tilemap_position - current
+			var rand_dir = randi() % 2
+			if rand_dir == 0:
+				if diff.x != 0:
+					current.x += sign(diff.x)
+			else:
+				if diff.y != 0:
+					current.y += sign(diff.y)
 
-	# for x in (BASE_SIZE.x):
-	# 	for y in (BASE_SIZE.y):
-	# 		var noise_at_point = (perlin_noise.get_noise_2d(x, y) + 1.0) / 2.0
+			var noise_at_point = (noise.get_noise_2d(current.x * 4.0, current.y * 4.0) + 1.0) / 2.0
+			var tile_type = 0
+			for threshold in threshold_to_tiles.keys():
+				if noise_at_point < threshold:
+					tile_type = threshold_to_tiles[threshold]
+					break
 
-	# 		var tile = 0
-	# 		for threshold in threshold_to_tiles.keys():
-	# 			if noise_at_point < threshold:
-	# 				tile = threshold_to_tiles[threshold]
-	# 				break
+			tilemap.set_cell(0, current, 2, Vector2(tile_type, 0))
 
+	# Place ground around the plant.
+	for plant in plants:
+		var plant_tilemap_position = _position_to_tilemap(plant.position)
+		for x in range(-1, 2):
+			for y in range(-1, 2):
+				tilemap.set_cell(0, plant_tilemap_position + Vector2i(x, y), 2, Vector2(3, 0))
 
-	# 		tilemap.set_cell(0, Vector2(x, y), 2, Vector2(tile, 0))
+	# Place ground around the base origin.
+	for x in range(-2, 3):
+		for y in range(-2, 3):
+			tilemap.set_cell(0, origin + Vector2i(x, y), 2, Vector2(3, 0))
 
 func _on_plant_overlapped(_body, plant):
 	var label = $CanvasLayer/Label
