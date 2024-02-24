@@ -21,4 +21,8 @@ script = ExtResource("1_1s4bk")
 [node name="ElementResolver" type="Node" parent="."]
 script = ExtResource("2_my16n")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="element_merged" from="ElementResolver" to="." method="_on_element_resolver_element_merged"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

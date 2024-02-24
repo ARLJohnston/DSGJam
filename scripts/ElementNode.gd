@@ -8,6 +8,8 @@ signal die_signal(type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("wake")
+	self.scale = Vector2(0,0)
 	$Label.text = str(value)
 	
 func set_image_resource(image_resource):
