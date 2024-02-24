@@ -55,6 +55,7 @@ func _input(event):
 	if event.is_action_pressed("pickup") and player_in_range:
 		#Somehow need to connect to inventory
 		$"/root/items".add_plant_to_inventory(data)
+		
 		self.queue_free()
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):

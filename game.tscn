@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c77wfn031wb74" path="res://assets/grass.png" id="2_y88yb"]
 [ext_resource type="Texture2D" uid="uid://prljomc5fvax" path="res://assets/tiles/tileset.png" id="3_hcgq6"]
 [ext_resource type="PackedScene" uid="uid://bfjdrnmaxxk86" path="res://scenes/Player.tscn" id="4_3tirm"]
-[ext_resource type="PackedScene" path="res://scenes/Grandma.tscn" id="5_q0qqt"]
-[ext_resource type="PackedScene" path="res://scenes/Inventory.tscn" id="6_jl23g"]
+[ext_resource type="PackedScene" uid="uid://cd1q0xpv3nrij" path="res://scenes/Grandma.tscn" id="5_q0qqt"]
+[ext_resource type="PackedScene" uid="uid://b000up8266fu2" path="res://scenes/Inventory.tscn" id="6_jl23g"]
 [ext_resource type="AudioStream" uid="uid://da7q3pgbauw34" path="res://sound/frogbeat.mp3" id="6_w5ap8"]
 [ext_resource type="Script" path="res://scripts/BackgroundMusic.gd" id="7_4mjiw"]
 
@@ -58,5 +58,8 @@ autoplay = true
 script = ExtResource("7_4mjiw")
 
 [node name="Inventory" parent="." instance=ExtResource("6_jl23g")]
+custom_minimum_size = Vector2(64, 64)
+size_flags_vertical = 3
+mouse_default_cursor_shape = 6
 
 [connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]

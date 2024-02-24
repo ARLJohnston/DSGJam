@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b000up8266fu2"]
+[gd_scene load_steps=3 format=3 uid="uid://b000up8266fu2"]
 
 [ext_resource type="Script" path="res://scripts/Inventory.gd" id="1_30yo4"]
+[ext_resource type="AudioStream" uid="uid://dd1fjyas2s20g" path="res://sound/pickup.wav" id="2_scirx"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -12,6 +13,13 @@ grow_vertical = 2
 script = ExtResource("1_30yo4")
 
 [node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 7
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_scirx")
