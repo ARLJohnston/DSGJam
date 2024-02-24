@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player = $CharacterBody2D
+@onready var player = $Player
 @onready var tilemap = $TileMap
 
 @onready var plant_scene = preload("res://scenes/Plant.tscn")
