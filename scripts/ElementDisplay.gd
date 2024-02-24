@@ -5,10 +5,6 @@ var data = {}
 
 var element_node_scene = load("res://scenes/ElementNode.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_data({"ice": 5, "poison": 1, "water": 3})
-
 func set_data(data):
 	self.data = $ElementResolver.resolve_elements(data)
 	for child in children:
