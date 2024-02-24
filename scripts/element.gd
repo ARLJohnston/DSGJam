@@ -12,9 +12,6 @@ enum ElementType {
 	LAVA
 }
 
-static func get_random_element():
-	return ElementType.values()[randi() % ElementType.values().size()]
-
 var name: String
 var created_by
 
