@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwm6silf57nhg"]
+
+[ext_resource type="Script" path="res://scripts/Plant.gd" id="1_1ulql"]
+
+[sub_resource type="Gradient" id="Gradient_qi8mr"]
+offsets = PackedFloat32Array(0, 0.603896)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwgaf"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_qi8mr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Plant" type="Node2D"]
+script = ExtResource("1_1ulql")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_wwgaf")
