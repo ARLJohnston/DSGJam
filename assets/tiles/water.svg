@@ -31,7 +31,7 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer4" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -82,62 +82,16 @@
        id="layer4"
        inkscape:label="Colour">
       <rect
-         style="fill:#008000;stroke:none;stroke-width:5.70153;stroke-linecap:round;stroke-linejoin:miter"
+         style="fill:#0000aa;stroke:none;stroke-width:5.70153;stroke-linecap:round;stroke-linejoin:miter"
          id="rect2"
          width="122.29848"
          height="122.29848"
          x="66.518219"
          y="49.63768" />
     </g>
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.53529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 71.128558,72.274252 5.8618,-9.989426 2.83345,5.308901 5.29357,-8.314493 4.4549,16.088332 8.00708,-6.092662"
-       id="path1"
-       inkscape:label="path1"
-       sodipodi:nodetypes="cccccc"
-       inkscape:export-filename="tiles/grass.png"
-       inkscape:export-xdpi="13.292071"
-       inkscape:export-ydpi="13.292071" />
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.53529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 142.65885,131.11782 5.8618,-9.98943 2.83346,5.3089 5.29356,-8.3145 4.45491,16.08834 8.00706,-6.09267"
-       id="path1-2"
-       inkscape:label="path1"
-       sodipodi:nodetypes="cccccc" />
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.53529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 111.38288,99.075018 5.8618,-9.989426 2.83346,5.308906 5.29356,-8.314497 4.45491,16.088329 8.00706,-6.092662"
-       id="path1-2-7"
-       inkscape:label="path1"
-       sodipodi:nodetypes="cccccc" />
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.53529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 147.26541,70.244223 10.28662,-16.582837 6.49158,9.075461 7.55744,-7.26794 12.60532,9.697023"
-       id="path2"
-       inkscape:label="path1"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.53529;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 144.76246,167.91239 10.28663,-16.58283 6.49156,9.07546 7.55744,-7.26794 12.60532,9.69702"
-       id="path2-6"
-       inkscape:label="path1"
-       sodipodi:nodetypes="ccccc" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Detailing 2">
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.8084;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 74.677068,145.32195 8.76741,4.80877 4.66205,-14.26151 7.70113,22.85501 11.339942,-15.78396 6.41859,5.17422"
-       id="path1-5"
-       inkscape:label="path1"
-       sodipodi:nodetypes="cccccc" />
-    <path
-       style="fill:none;stroke:#00ff00;stroke-width:1.8084;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-       d="m 137.83367,96.075668 8.76741,4.808772 4.66204,-14.261516 7.70113,22.855016 11.33993,-15.783962 6.41859,5.17422"
-       id="path1-5-6"
-       inkscape:label="path1"
-       sodipodi:nodetypes="cccccc" />
-  </g>
+     inkscape:label="Detailing 2" />
 </svg>
