@@ -40,9 +40,6 @@ func _ready():
 	image_resource = "assets/flower_petals_" + str([1,2,3].pick_random()) + ".png"
 	$flower_petals.texture = load(image_resource)
 
-func _process(delta):
-	pass
-
 func _get_dominant_plant_type():
 	var max_type = "air"
 	var max_count = 0

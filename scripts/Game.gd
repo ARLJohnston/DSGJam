@@ -17,14 +17,15 @@ func _ready():
 	# Shift player to the center of the world
 	player.position = _tilemap_to_position(Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2))
 	_gen()
+	player.can_walk_to_callback = self._player_can_walk_to
 
 func _gen():
 	const threshold_to_tiles = {
 		# 0.5: 0,
 		# 0.6: 1,
-		0.33: 2,
-		0.66: 3,
-		1.0: 4,
+		0.33: 1,
+		0.66: 2,
+		1.0: 3,
 	}
 
 	var noise = FastNoiseLite.new()
@@ -74,7 +75,7 @@ func _gen():
 					current.y += sign(diff.y)
 
 			var noise_at_point = (noise.get_noise_2d(current.x * 4.0, current.y * 4.0) + 1.0) / 2.0
-			var tile_type = 0
+			var tile_type = threshold_to_tiles.values()[0]
 			for threshold in threshold_to_tiles.keys():
 				if noise_at_point < threshold:
 					tile_type = threshold_to_tiles[threshold]
@@ -102,3 +103,8 @@ func _tilemap_to_position(tile: Vector2i) -> Vector2:
 
 func _random_tilemap_position() -> Vector2i:
 	return Vector2i(randi() % BASE_SIZE.x, randi() % BASE_SIZE.y)
+
+func _player_can_walk_to(pos: Vector2) -> bool:
+	var tilepos = _position_to_tilemap(pos)
+	var tile = tilemap.get_cell_tile_data(0, tilepos)
+	return tile.get_custom_data("walkable")
