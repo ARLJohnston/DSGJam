@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0xo8cs1sewvs"]
+[gd_scene load_steps=10 format=3 uid="uid://d0xo8cs1sewvs"]
 
 [ext_resource type="Script" path="res://scripts/ElementNode.gd" id="1_ehvxb"]
+[ext_resource type="Texture2D" uid="uid://8e5en6xkkqqf" path="res://assets/plant.png" id="2_ehntm"]
 
 [sub_resource type="Theme" id="Theme_8m3ix"]
 
@@ -209,6 +210,7 @@ script = ExtResource("1_ehvxb")
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
+texture = ExtResource("2_ehntm")
 
 [node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 2
