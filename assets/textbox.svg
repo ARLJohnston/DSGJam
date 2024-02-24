@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.87778443"
-     inkscape:cx="424.93349"
-     inkscape:cy="308.16222"
+     inkscape:zoom="0.39453613"
+     inkscape:cx="400.4703"
+     inkscape:cy="282.61037"
      inkscape:window-width="1362"
      inkscape:window-height="764"
      inkscape:window-x="0"
@@ -125,6 +125,9 @@
        style="fill:none;stroke:#b3b3b3;stroke-width:0.5;stroke-linecap:round;stroke-dasharray:none"
        d="m 30.521288,91.254903 143.401592,-5e-6"
        id="path9-2"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="textbox.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
