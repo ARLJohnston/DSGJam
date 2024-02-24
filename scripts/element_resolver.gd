@@ -1,15 +1,21 @@
 class_name ElementResolver
 
+signal element_merged(first,second,result)
+
 var elements_definition = {
 	"null": Element.new("null", [["fire", "water"], ["air", "earth"]]),
-	"fire": Element.new("fire"), 
-	"water": Element.new("water"), 
-	"air": Element.new("air"), 
-	"earth": Element.new("earth"),
+	"fire": Element.new("fire", [["lightning", "earth"]]), 
+	"water": Element.new("water", [["ice", "fire"]]), 
+	"air": Element.new("air", [["steam", "ice"]]), 
+	"earth": Element.new("earth", [["ice", "mud"]]),
 	"ice": Element.new("ice", [["water", "air"]]), 
 	"mud": Element.new("mud", [["water", "earth"]]), 
 	"lightning": Element.new("lightning", [["fire", "air"]]), 
-	"lava": Element.new("lava", [["fire", "earth"]])
+	"lava": Element.new("lava", [["fire", "earth"]]),
+	"steam": Element.new("steam", [["lava", "ice"]]),
+	"clay": Element.new("clay", [["fire", "mud"]]),
+	"poison": Element.new("poison", [["mud", "steam"]]),
+	"healing": Element.new("healing", [["lightning", "poison"]])
 }
 
 var combomap = generate_combomap(elements_definition)
@@ -76,6 +82,8 @@ func resolve_element(name, intermediate_copy, evaluation_keys=evaluation_order):
 			
 			deduct_element(name, intermediate_copy)
 			deduct_element(combo, intermediate_copy)
+			
+			element_merged.emit(name, combo, new_element)
 			
 			if new_element == "null":
 				return true
