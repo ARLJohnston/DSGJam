@@ -107,4 +107,7 @@ func _random_tilemap_position() -> Vector2i:
 func _player_can_walk_to(pos: Vector2) -> bool:
 	var tilepos = _position_to_tilemap(pos)
 	var tile = tilemap.get_cell_tile_data(0, tilepos)
+	if tile == null:
+		return false
+
 	return tile.get_custom_data("walkable")
