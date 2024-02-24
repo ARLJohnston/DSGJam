@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dscldkihxsfdw"]
+[gd_scene load_steps=9 format=3 uid="uid://dscldkihxsfdw"]
 
 [ext_resource type="Script" path="res://scripts/Game.gd" id="1_cnoye"]
 [ext_resource type="Texture2D" uid="uid://c77wfn031wb74" path="res://assets/grass.png" id="2_y88yb"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="3_vihyh"]
 [ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="4_ckqh4"]
+[ext_resource type="PackedScene" uid="uid://ck28meqfv0j4l" path="res://inventory.tscn" id="5_x7opr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i641"]
 texture = ExtResource("2_y88yb")
@@ -37,3 +38,5 @@ shape = SubResource("RectangleShape2D_ln47u")
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="inventory" parent="." instance=ExtResource("5_x7opr")]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck28meqfv0j4l"]
+
+[ext_resource type="Script" path="res://inventory.gd" id="1_sdxx5"]
+[ext_resource type="Script" path="res://addons/gloot/core/inventory_grid.gd" id="1_sipac"]
+[ext_resource type="Resource" uid="uid://ddrmqwl3guset" path="res://assets/item_definitions.tres" id="2_30w1d"]
+[ext_resource type="Script" path="res://addons/gloot/ui/ctrl_inventory_grid.gd" id="4_104ps"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sdxx5")
+
+[node name="InventoryGrid" type="Node" parent="."]
+script = ExtResource("1_sipac")
+item_protoset = ExtResource("2_30w1d")
+
+[node name="CtrlInventoryGrid" type="Control" parent="."]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 320.0
+script = ExtResource("4_104ps")
+inventory_path = NodePath("../InventoryGrid")

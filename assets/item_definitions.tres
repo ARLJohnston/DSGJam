@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemProtoset" load_steps=2 format=3 uid="uid://ddrmqwl3guset"]
+
+[ext_resource type="Script" path="res://addons/gloot/core/item_protoset.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+json_data = "[
+	{
+		\"height\": 1,
+		\"id\": \"plant0\",
+		\"image\": \"res://assets/grass.png\",
+		\"width\": 1
+	},
+	{
+		\"height\": 1,
+		\"id\": \"plant1\",
+		\"image\": \"res://assets/grandma.png\",
+		\"width\": 1
+	}
+]"
