@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
-   sodipodi:docname="ice.svg"
+   sodipodi:docname="steam.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4523828"
-     inkscape:cx="-172.13092"
-     inkscape:cy="505.72065"
-     inkscape:window-width="778"
+     inkscape:cx="269.21276"
+     inkscape:cy="245.4587"
+     inkscape:window-width="1362"
      inkscape:window-height="764"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -50,10 +50,7 @@
     <path
        d="m 91.078678,42.758114 a 32,32 0 0 0 -21.639506,8.499739 1.552717,1.5527171 0 0 1 1.07332,1.466577 1.552717,1.5527171 0 0 1 -1.55236,1.552877 1.552717,1.5527171 0 0 1 -1.433504,-1.106909 32,32 0 0 0 -8.448064,21.58783 A 32,32 0 0 0 91.078678,106.75834 32,32 0 0 0 123.07828,74.758228 32,32 0 0 0 91.078678,42.758114 Z"
        style="fill:#00ccff;stroke:#006680;stroke-width:1.165;stroke-linecap:round;stroke-linejoin:round"
-       id="path59"
-       inkscape:export-filename="ice.png"
-       inkscape:export-xdpi="24.945908"
-       inkscape:export-ydpi="24.945908" />
+       id="path59" />
     <ellipse
        style="fill:#ffffff;stroke:#006680;stroke-width:2.08022;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
        id="path50"
