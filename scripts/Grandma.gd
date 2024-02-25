@@ -15,9 +15,6 @@ func _ready():
 		$ProximityElementDisplay.set_data(request)
 
 func make_request(map):
-	request = {"water": 1}
-	$ProximityElementDisplay.set_data(request)
-	return
 	
 	var plants = map.plants
 	if plants.size() == 0:

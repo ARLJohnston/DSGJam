@@ -46,10 +46,11 @@ func _gen():
 		var new_plant = plant_scene.instantiate()
 
 		var plant_dir = Vector2(cos(i * 2 * PI / PLANTS_ON_MAP), sin(i * 2 * PI / PLANTS_ON_MAP)).normalized()
-		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(20, 60)))
+		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(10, 30)))
 		new_plant.position = _tilemap_to_position(Vector2i(plant_pos.x, plant_pos.y))
 
 		add_child(new_plant)
+		new_plant.connect("plant_deleted_signal", handle_delete_plant)
 		plants.append(new_plant)
 
 	for plant in plants:
@@ -148,3 +149,6 @@ func _player_can_walk_to(pos: Vector2) -> bool:
 		return false
 
 	return tile.get_custom_data("walkable")
+
+func handle_delete_plant(data):
+	plants.erase(data)
