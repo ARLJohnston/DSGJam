@@ -19,12 +19,17 @@ func _ready():
 	var has_secondary_type = randf() < 0.8
 	var secondary_type = dominant_plant_type
 	if has_secondary_type:
-		var secondary_quantity = randi() % plant_stats[dominant_plant_type] + 1
+		var temp_data
 		while secondary_type == dominant_plant_type:
+			temp_data = plant_stats.duplicate()
 			secondary_type = get_weighted_type(plant_types)
+			var secondary_quantity = randi() % plant_stats[dominant_plant_type] + 1
 			
-		plant_stats[secondary_type] = secondary_quantity
-		petal_rotation = 360/(plant_stats[dominant_plant_type]*plant_stats[secondary_type]) % 360
+			temp_data[secondary_type] = secondary_quantity
+			temp_data = $ElementResolver.resolve_elements(temp_data)
+			if temp_data == {}:
+				secondary_type = dominant_plant_type
+		plant_types = temp_data
 	
 	var main_sprite = "assets/flower_base_" + str([1,2,3].pick_random()) + ".png"
 	var main_color = $ElementResolver.elements_definition[dominant_plant_type].color
