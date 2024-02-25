@@ -11,12 +11,11 @@ const PLANTS_ON_MAP = 10
 const BASE_SIZE = Vector2i(128, 128)
 const TILE_SIZE = 64
 const ORIGIN = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
-const MAX_SPIKES_PER_PATH = 5
+const MAX_SPIKES_PER_PATH = 10
 
 var plants: Array[Plant] = []
 
 func _ready():
-	_gen()
 	player.can_walk_to_callback = self._player_can_walk_to
 	_gen()
 
