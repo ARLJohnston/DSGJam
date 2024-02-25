@@ -7,16 +7,16 @@ extends Node2D
 
 
 const PLANTS_ON_MAP = 10
-const BASE_SIZE = Vector2i(64, 64)
+const BASE_SIZE = Vector2i(128, 128)
 const TILE_SIZE = 64
+const ORIGIN = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
 
 var plants: Array[Plant] = []
 
 func _ready():
 	# Shift player to the center of the world
-	player.position = _tilemap_to_position(Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2))
-	_gen()
 	player.can_walk_to_callback = self._player_can_walk_to
+	_gen()
 
 func _gen():
 	const threshold_to_tiles = {
@@ -30,6 +30,7 @@ func _gen():
 	var noise = FastNoiseLite.new()
 	noise.seed = randi()
 
+	# All tiles are water.
 	for x in (BASE_SIZE.x):
 		for y in (BASE_SIZE.y):
 			tilemap.set_cell(0, Vector2(x, y), 2, Vector2(0, 0))
@@ -37,31 +38,16 @@ func _gen():
 	for i in range(PLANTS_ON_MAP):
 		var new_plant = plant_scene.instantiate()
 
-		if plants.size() == 0:
-			new_plant.position = _tilemap_to_position(_random_tilemap_position())
-		else:
-			var candidate_position = _position_to_tilemap(plants[0].position)
-			while true:
-				candidate_position = _random_tilemap_position()
-
-				var is_good = true
-				for plant in plants:
-					var distance = (_position_to_tilemap(plant.position) - candidate_position).length()
-					if distance < 5:
-						is_good = false
-						break
-
-				if is_good:
-					new_plant.position = _tilemap_to_position(candidate_position)
-					break
+		var plant_dir = Vector2(cos(i * 2 * PI / PLANTS_ON_MAP), sin(i * 2 * PI / PLANTS_ON_MAP)).normalized()
+		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(32, 50)))
+		new_plant.position = _tilemap_to_position(Vector2i(plant_pos.x, plant_pos.y))
 
 		add_child(new_plant)
 		plants.append(new_plant)
 
-	var origin = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
 	for plant in plants:
 		var plant_tilemap_position = _position_to_tilemap(plant.position)
-		var current = origin
+		var current = Vector2i(ORIGIN)
 
 		while current != plant_tilemap_position:
 			var diff = plant_tilemap_position - current
@@ -92,7 +78,7 @@ func _gen():
 	# Place ground around the base origin.
 	for x in range(-2, 3):
 		for y in range(-2, 3):
-			tilemap.set_cell(0, origin + Vector2i(x, y), 2, Vector2(3, 0))
+			tilemap.set_cell(0, ORIGIN + Vector2i(x, y), 2, Vector2(3, 0))
 
 func _position_to_tilemap(pos: Vector2) -> Vector2i:
 	return Vector2i(int(pos.x / TILE_SIZE), int(pos.y / TILE_SIZE))
