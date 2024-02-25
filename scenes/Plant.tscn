@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwm6silf57nhg"]
+[gd_scene load_steps=8 format=3 uid="uid://dwm6silf57nhg"]
 
 [ext_resource type="Script" path="res://scripts/Plant.gd" id="1_1ulql"]
-[ext_resource type="PackedScene" uid="uid://ben23m1njao22" path="res://scenes/PlantDataSprites.tscn" id="4_tsg8e"]
+[ext_resource type="PackedScene" path="res://scenes/PlantDataSprites.tscn" id="4_tsg8e"]
 [ext_resource type="PackedScene" uid="uid://r85c3ceisq0f" path="res://scenes/ProximityElementDisplay.tscn" id="6_4rrl4"]
 [ext_resource type="PackedScene" uid="uid://bmideyy4ofabo" path="res://scenes/ElementResolver.tscn" id="7_0qx6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lvts"]
 size = Vector2(124, 114)
+
+[sub_resource type="Gradient" id="Gradient_4rr5n"]
+offsets = PackedFloat32Array(0, 0.729323)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6udh"]
+gradient = SubResource("Gradient_4rr5n")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_1ulql")
@@ -26,6 +35,11 @@ offset_left = -32.0
 offset_top = -32.0
 offset_right = 31.0
 offset_bottom = 32.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(15, 15)
+energy = 0.5
+texture = SubResource("GradientTexture2D_o6udh")
 
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
