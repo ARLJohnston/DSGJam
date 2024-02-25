@@ -108,9 +108,11 @@ func _gen():
 	tilemap.update_internals()
 	var array = []
 	var used_cells = tilemap.get_used_cells_by_id(0, -1, Vector2i(3, 0))
+	used_cells += tilemap.get_used_cells_by_id(0, -1, Vector2i(2, 0))
+	used_cells += tilemap.get_used_cells_by_id(0, -1, Vector2i(1, 0))
 	var adjacents = []
 	for cell in used_cells:
-		adjacents.append(tilemap.get_surrounding_cells(cell))
+		adjacents += (tilemap.get_surrounding_cells(cell))
 	
 	used_cells += adjacents
 	
@@ -119,10 +121,10 @@ func _gen():
 		for y in (BASE_SIZE.y):
 			if Vector2i(x, y) not in used_cells:
 				var noise_at_point = (noise.get_noise_2d(x * 4.0, y * 4.0) + 1.0) / 2.0
-				var tile_type = tiles_after_path.values()[0]
-				for threshold in tiles_after_path.keys():
+				var tile_type = threshold_to_tiles.values()[0]
+				for threshold in threshold_to_tiles.keys():
 					if noise_at_point > threshold:
-						tile_type = tiles_after_path[threshold]
+						tile_type = threshold_to_tiles[threshold]
 						tilemap.set_cell(0, Vector2i(x, y), 2, Vector2i(tile_type, 0))
 						break
 
