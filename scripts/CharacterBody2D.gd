@@ -6,6 +6,7 @@ var prev_direction = Vector2(0, 0)
 var input_direction = Vector2(0, 0)
 var jumping = 0
 var new_position = Vector2(0, 0)
+var bounce_sound = 1
 var tween
 
 signal toggle_inventory
@@ -34,6 +35,12 @@ func get_input():
 			
 	if(Input.is_action_just_pressed("inventory")):
 		toggle_inventory.emit()
+	
+	if Input.is_action_just_pressed("bounce_sound"):
+		if bounce_sound:
+			bounce_sound = 0
+		else:
+			bounce_sound = 1
 
 func move(dir):
 	var next_position = position + 64*dir
@@ -47,6 +54,8 @@ func move(dir):
 		tween.tween_property(self, "position", next_position, 0.2)
 		tween.play()
 		get_node("AnimationPlayer").play("bounce")
+		if bounce_sound:
+			$Bounce.play()
 	elif tween && !tween.is_running():
 		tween.kill()
 
