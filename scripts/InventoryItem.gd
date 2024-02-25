@@ -9,6 +9,9 @@ func is_empty():
 
 func clear():
 	$DraggableControl.get_node("PlantDataSprites").clear()
+
+func data_equals(data):
+	return $DraggableControl/PlantDataSprites.data == data
 	
 func load_from(data):
 	$DraggableControl.get_node("PlantDataSprites").load_from(data)

@@ -26,3 +26,8 @@ func add_plant_to_inventory(plant_data):
 			$Pickup.play()
 			return true
 	return false
+	
+func remove_plant(plant_data):
+	for child in children:
+		if child.data_equals(plant_data):
+			child.clear()
