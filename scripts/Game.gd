@@ -46,7 +46,7 @@ func _gen():
 		var new_plant = plant_scene.instantiate()
 
 		var plant_dir = Vector2(cos(i * 2 * PI / PLANTS_ON_MAP), sin(i * 2 * PI / PLANTS_ON_MAP)).normalized()
-		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(15, 40)))
+		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(30, 55)))
 		new_plant.position = _tilemap_to_position(Vector2i(plant_pos.x, plant_pos.y))
 
 		add_child(new_plant)

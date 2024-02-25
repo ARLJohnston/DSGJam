@@ -13,6 +13,7 @@ func _ready():
 	
 	var plant_stats = {}
 	var dominant_plant_type = get_weighted_type(plant_types)
+	
 	plant_stats[dominant_plant_type] = randi() % 3 + 1
 	var petal_rotation = 360/(plant_stats[dominant_plant_type])
 
@@ -29,8 +30,9 @@ func _ready():
 			temp_data = $ElementResolver.resolve_elements(temp_data)
 			if temp_data == {}:
 				secondary_type = dominant_plant_type
-		plant_types = temp_data
+		plant_stats = temp_data
 	
+	print("Made plant: " + str(plant_stats))
 	var main_sprite = "assets/flower_base_" + str([1,2,3].pick_random()) + ".png"
 	var main_color = $ElementResolver.elements_definition[dominant_plant_type].color
 	var petal_sprite = "assets/flower_petals_" + str([1,2,3].pick_random()) + ".png"
@@ -48,13 +50,13 @@ func get_weighted_type(plant_types):
 	
 	var plant_type
 	if distribution < 0.8:
-		plant_type = plant_types.slice(0,num_common-1)
+		plant_type = plant_types.slice(0,num_common)
 	elif distribution < 0.95:
-		plant_type = plant_types.slice(num_common,num_common+num_uncommon-1)
+		plant_type = plant_types.slice(num_common,num_common+num_uncommon)
 	else:
-		plant_type = plant_types.slice(num_common+num_uncommon,plant_types.size()-1)
-		
-	return plant_type[randi() % (plant_type.size()-1)]
+		plant_type = plant_types.slice(num_common+num_uncommon,plant_types.size())
+	
+	return plant_type[randi() % (plant_type.size())]
 	
 	
 func _input(event):

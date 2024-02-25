@@ -38,6 +38,7 @@ func make_request(map):
 		new_plants = [plants[indexes[0]], plants[indexes[1]], plants[indexes[2]]]
 	
 	for plant in new_plants:
+		print("Grandma picked: " + str(plant.data.plant_stats))
 		request = $ElementResolver.merge_elements(request, plant.data.plant_stats)
 		
 	if request == {}:
