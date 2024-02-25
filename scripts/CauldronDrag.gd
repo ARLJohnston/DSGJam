@@ -6,7 +6,7 @@ func _can_drop_data(position, data):
 	return data is PlantData
 	
 func _drop_data(position, data):
-	print(data)
+	print("Dropped" + str(data))
 	$ElementDisplay/MarginContainer/Controller.add_flower(data.plant_stats)
 	var inventory = get_tree().get_first_node_in_group("inventory")
 	if inventory:
