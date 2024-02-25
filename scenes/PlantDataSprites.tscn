@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4e11wqvwccmo"]
+
+[ext_resource type="Texture2D" uid="uid://cpni2dnxqi8gr" path="res://assets/flower_base_1.png" id="1_0bjw6"]
+[ext_resource type="Script" path="res://scripts/PlantDataSprites.gd" id="1_5u28l"]
+[ext_resource type="Texture2D" uid="uid://dmtqq0uhv5lwn" path="res://assets/flower_petals_1.png" id="2_v5yiy"]
+
+[node name="PlantDataSprites" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -607.5
+offset_top = -356.0
+offset_right = -544.5
+offset_bottom = -292.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+script = ExtResource("1_5u28l")
+
+[node name="flower_base" type="TextureRect" parent="."]
+z_index = 3
+layout_mode = 2
+texture = ExtResource("1_0bjw6")
+
+[node name="flower_petals" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("2_v5yiy")

@@ -29,34 +29,17 @@ func _ready():
 	
 	data = PlantData.new(plant_stats, petal_rotation, main_sprite, main_color, petal_sprite, petal_color)
 	
-	load_from(data)
-	
-func load_from(plant_data):
-	$ProximityElementDisplay.set_data(plant_data.plant_stats)
-	
-	$flower_base.self_modulate = Color(plant_data.main_color)
-	$flower_base.texture = load(plant_data.main_sprite)
-	
-	$flower_petals.self_modulate = Color(plant_data.petal_color)
-	$flower_petals.rotation_degrees = plant_data.petal_rotation
-	$flower_petals.rotate(rotation_degrees)
-	$flower_petals.texture = load(plant_data.petal_sprite)
-
-func _get_dominant_plant_type(plant_stats):
-	var max_type = "air"
-	var max_count = 0
-	for plant_type in plant_types:
-		if plant_stats[plant_type] > max_count:
-			max_type = plant_type
-			max_count = plant_stats[plant_type]
-	return max_type
+	$ProximityElementDisplay.set_data(plant_stats)
+	$PlantDataSprites.load_from(data)
 
 func _input(event):
 	if event.is_action_pressed("pickup") and player_in_range:
 		#Somehow need to connect to inventory
-		$"/root/items".add_plant_to_inventory(data)
-		
-		self.queue_free()
+		var inventory_group = get_tree().get_nodes_in_group("inventory")
+		if inventory_group.size() > 0:
+			var result = inventory_group[0].add_plant_to_inventory(data)
+			if result:
+				self.queue_free()
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if body.is_in_group("player"):

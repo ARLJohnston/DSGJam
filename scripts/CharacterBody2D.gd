@@ -8,6 +8,8 @@ var jumping = 0
 var new_position = Vector2(0, 0)
 var tween
 
+signal toggle_inventory
+
 func _can_walk_to_noop(pos_) -> bool:
 	return true
 
@@ -25,6 +27,9 @@ func get_input():
 			input_direction = prev_direction
 		else:
 			input_direction = Vector2(0, 0)
+			
+	if(Input.is_action_just_pressed("inventory")):
+		toggle_inventory.emit()
 
 func move(dir):
 	var next_position = position + 64*dir

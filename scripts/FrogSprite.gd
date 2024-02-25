@@ -27,7 +27,7 @@ var colours = [
 func _ready():
 	self_modulate= Color(colours.pick_random()) 
 
-func _input(event):
-	if event is InputEventMouseButton:
-		_ready()
-	
+#func _input(event):
+#	if event is InputEventMouseButton:
+#		_ready()
+#	
