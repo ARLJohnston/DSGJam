@@ -58,3 +58,6 @@ shape = SubResource("RectangleShape2D_uxi10")
 color = Color(0.886275, 0.552941, 0.701961, 1)
 energy = 0.5
 texture = SubResource("GradientTexture2D_nvur8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
