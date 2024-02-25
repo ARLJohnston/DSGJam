@@ -4,12 +4,14 @@ extends Node2D
 @onready var tilemap = $TileMap
 
 @onready var plant_scene = preload("res://scenes/Plant.tscn")
+@onready var spike_scene = preload("res://scenes/Spikes.tscn")
 
 
 const PLANTS_ON_MAP = 10
 const BASE_SIZE = Vector2i(128, 128)
 const TILE_SIZE = 64
 const ORIGIN = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
+const MAX_SPIKES_PER_PATH = 10
 
 var plants: Array[Plant] = []
 
@@ -49,6 +51,10 @@ func _gen():
 		var plant_tilemap_position = _position_to_tilemap(plant.position)
 		var current = Vector2i(ORIGIN)
 
+		var spikes_placed = 0
+		var spike_just_placed = false
+
+		var last = current
 		while current != plant_tilemap_position:
 			var diff = plant_tilemap_position - current
 			var rand_dir = randi() % 2
@@ -58,6 +64,8 @@ func _gen():
 			else:
 				if diff.y != 0:
 					current.y += sign(diff.y)
+			if current == last:
+				continue
 
 			var noise_at_point = (noise.get_noise_2d(current.x * 4.0, current.y * 4.0) + 1.0) / 2.0
 			var tile_type = threshold_to_tiles.values()[0]
@@ -67,6 +75,18 @@ func _gen():
 					break
 
 			tilemap.set_cell(0, current, 2, Vector2(tile_type, 0))
+
+			if spikes_placed < MAX_SPIKES_PER_PATH:
+				var dist_from_origin = (current - ORIGIN).length()
+				if dist_from_origin < 10:
+					continue
+
+				if not spike_just_placed and randf() < 0.2:
+					var new_spike = spike_scene.instantiate()
+					new_spike.position = _tilemap_to_position(current)
+					add_child(new_spike)
+					spikes_placed += 1
+					spike_just_placed = true
 
 	# Place ground around the plant.
 	for plant in plants:
