@@ -62,6 +62,9 @@ func _on_request_complete_poll_timer_timeout():
 
 func win():
 	print("You win")
+	get_tree().change_scene_to_file("res://scenes/WinScreen.tscn")
 
 func lose():
 	print("You lose")
+	get_tree().change_scene_to_file("res://LoseScreen.tscn")
+
