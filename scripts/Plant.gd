@@ -5,6 +5,8 @@ var plant_types
 var data
 var player_in_range = false
 
+signal plant_deleted_signal(data)
+
 func _ready():
 	plant_types = $ElementResolver.elements_definition.keys()
 	plant_types.erase("null")
@@ -17,10 +19,11 @@ func _ready():
 	var has_secondary_type = randf() < 0.8
 	var secondary_type = dominant_plant_type
 	if has_secondary_type:
+		var secondary_quantity = randi() % plant_stats[dominant_plant_type] + 1
 		while secondary_type == dominant_plant_type:
 			secondary_type = get_weighted_type(plant_types)
 			
-		plant_stats[secondary_type] = randi() % plant_stats[dominant_plant_type] + 1
+		plant_stats[secondary_type] = secondary_quantity
 		petal_rotation = 360/(plant_stats[dominant_plant_type]*plant_stats[secondary_type]) % 360
 	
 	var main_sprite = "assets/flower_base_" + str([1,2,3].pick_random()) + ".png"
@@ -56,6 +59,7 @@ func _input(event):
 		if inventory:
 			var result = inventory.add_plant_to_inventory(data)
 			if result == true:
+				plant_deleted_signal.emit(self)
 				self.queue_free()
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):

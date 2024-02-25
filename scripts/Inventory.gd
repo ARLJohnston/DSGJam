@@ -21,9 +21,9 @@ func add_new_child():
 func toggle_inventory():
 	self.visible = !self.visible
 	
-	var map = get_tree().get_first_node_in_group("map")
-	if map:
-		children[0].load_from(map.plants.pick_random().data)
+	#var map = get_tree().get_first_node_in_group("map")
+	#if map:
+	#	children[0].load_from(map.plants.pick_random().data)
 	
 func add_plant_to_inventory(plant_data):
 	#Need to proper instantiate and set stuff here
