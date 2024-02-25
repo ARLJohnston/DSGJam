@@ -79,6 +79,10 @@ func _gen():
 	for x in range(-2, 3):
 		for y in range(-2, 3):
 			tilemap.set_cell(0, ORIGIN + Vector2i(x, y), 2, Vector2(3, 0))
+			
+	
+	print(tilemap.get_cell_tile_data(0, Vector2(0, 0)))
+	print(tilemap.get_cell_tile_data(0, Vector2(65, 65)))
 
 func _position_to_tilemap(pos: Vector2) -> Vector2i:
 	return Vector2i(int(pos.x / TILE_SIZE), int(pos.y / TILE_SIZE))

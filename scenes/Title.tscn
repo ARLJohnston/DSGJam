@@ -11,10 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://da7q3pgbauw34" path="res://sound/frogbeat.mp3" id="9_ak2ui"]
 [ext_resource type="Script" path="res://scripts/BackgroundMusic.gd" id="10_22322"]
 
-[sub_resource type="SystemFont" id="SystemFont_k1qpv"]
+[sub_resource type="SystemFont" id="SystemFont_b880c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_reuxa"]
-font = SubResource("SystemFont_k1qpv")
+font = SubResource("SystemFont_b880c")
 font_size = 161
 outline_size = 45
 outline_color = Color(0, 0, 0, 1)
@@ -87,6 +87,7 @@ offset_right = 642.0
 offset_bottom = 379.0
 text = "Rogue"
 label_settings = SubResource("LabelSettings_reuxa")
+metadata/_edit_use_anchors_ = true
 
 [node name="Fauna" type="Label" parent="."]
 offset_left = 614.0
@@ -95,6 +96,7 @@ offset_right = 1206.0
 offset_bottom = 431.0
 text = "Fauna"
 label_settings = SubResource("LabelSettings_reuxa")
+metadata/_edit_use_anchors_ = true
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_jl51s")
