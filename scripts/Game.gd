@@ -11,7 +11,7 @@ const PLANTS_ON_MAP = 10
 const BASE_SIZE = Vector2i(128, 128)
 const TILE_SIZE = 64
 const ORIGIN = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
-const MAX_SPIKES_PER_PATH = 10
+const MAX_SPIKES_PER_PATH = 5
 
 var plants: Array[Plant] = []
 
@@ -41,7 +41,7 @@ func _gen():
 		var new_plant = plant_scene.instantiate()
 
 		var plant_dir = Vector2(cos(i * 2 * PI / PLANTS_ON_MAP), sin(i * 2 * PI / PLANTS_ON_MAP)).normalized()
-		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(32, 50)))
+		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(20, 60)))
 		new_plant.position = _tilemap_to_position(Vector2i(plant_pos.x, plant_pos.y))
 
 		add_child(new_plant)
@@ -50,11 +50,11 @@ func _gen():
 	for plant in plants:
 		var plant_tilemap_position = _position_to_tilemap(plant.position)
 		var current = Vector2i(ORIGIN)
+		var last = current
 
 		var spikes_placed = 0
-		var spike_just_placed = false
+		var last_spike_coord = current
 
-		var last = current
 		while current != plant_tilemap_position:
 			var diff = plant_tilemap_position - current
 			var rand_dir = randi() % 2
@@ -64,8 +64,10 @@ func _gen():
 			else:
 				if diff.y != 0:
 					current.y += sign(diff.y)
+
 			if current == last:
 				continue
+			last = current
 
 			var noise_at_point = (noise.get_noise_2d(current.x * 4.0, current.y * 4.0) + 1.0) / 2.0
 			var tile_type = threshold_to_tiles.values()[0]
@@ -78,15 +80,18 @@ func _gen():
 
 			if spikes_placed < MAX_SPIKES_PER_PATH:
 				var dist_from_origin = (current - ORIGIN).length()
-				if dist_from_origin < 10:
+				var dist_from_last_spike = (current - last_spike_coord).length()
+				var dist_from_plant = diff.length()
+
+				if dist_from_origin < 10 or dist_from_plant < 10 or dist_from_last_spike < 5:
 					continue
 
-				if not spike_just_placed and randf() < 0.2:
+				if randf() < 0.2:
 					var new_spike = spike_scene.instantiate()
 					new_spike.position = _tilemap_to_position(current)
 					add_child(new_spike)
 					spikes_placed += 1
-					spike_just_placed = true
+					last_spike_coord = current
 
 	# Place ground around the plant.
 	for plant in plants:
