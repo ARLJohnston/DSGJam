@@ -40,7 +40,7 @@ func move(dir):
 	if not can_walk_to_callback.call(next_position):
 		return
 
-	if !tween or !tween.is_running():
+	if (!tween or !tween.is_running()) and !get_node("AnimationPlayer").is_playing():
 		#move by 64*direction
 		tween = create_tween()
 

@@ -10,7 +10,6 @@ const PLANTS_ON_MAP = 10
 const BASE_SIZE = Vector2i(64, 64)
 const TILE_SIZE = 64
 
-var items = ItemProtoset
 var plants: Array[Plant] = []
 
 func _ready():
