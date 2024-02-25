@@ -1,5 +1,7 @@
 extends TextureRect
 
+var player_in_range = false
+
 func _can_drop_data(position, data):
 	print("Cauldron!")
 	print(data.plant_stats)
@@ -16,7 +18,14 @@ func _drop_data(position, data):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		$ElementDisplay.visible = true
+		player_in_range = true
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		$ElementDisplay.visible = false
+		player_in_range = false
+		
+func _input(event):
+	if event.is_action_pressed("pickup") and player_in_range:
+		$ElementDisplay/MarginContainer/Controller.clear_layer()
+
