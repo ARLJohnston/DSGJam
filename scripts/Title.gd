@@ -27,3 +27,7 @@ func _process(delta):
 		grandma_tween.play()
 	elif grandma_tween && !grandma_tween.is_running():
 		grandma_tween.kill()
+
+func _input(event):
+	if event is InputEventKey:
+		get_tree().change_scene_to_file("res://game.tscn")
