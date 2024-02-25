@@ -10,10 +10,13 @@ func _ready():
 		player.connect("toggle_inventory", toggle_inventory)
 		
 	for i in range(9*3):
-		var child = inventory_item_scene.instantiate()
-		child.clear()
-		$MarginContainer.get_node("GridContainer").add_child(child)
-		children.append(child)
+		add_new_child()
+		
+func add_new_child():
+	var child = inventory_item_scene.instantiate()
+	child.clear()
+	$MarginContainer.get_node("GridContainer").add_child(child)
+	children.append(child)
 		
 func toggle_inventory():
 	self.visible = !self.visible
@@ -36,4 +39,7 @@ func add_plant_to_inventory(plant_data):
 func remove_plant(plant_data):
 	for child in children:
 		if child.data_equals(plant_data):
-			child.clear()
+			child.queue_free()
+			children.erase(child)
+			add_new_child()
+			break
