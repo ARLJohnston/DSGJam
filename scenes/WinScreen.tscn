@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://m0quk40iqu4o"]
+
+[ext_resource type="Texture2D" uid="uid://d4nb7j88to346" path="res://assets/frog.svg" id="1_xrroa"]
+[ext_resource type="Script" path="res://scripts/FrogSprite.gd" id="2_r1rvl"]
+[ext_resource type="Texture2D" uid="uid://ckxfegxj2bctp" path="res://assets/frog_base.png" id="3_eca6c"]
+[ext_resource type="Texture2D" uid="uid://bedcyuv5i8qae" path="res://assets/grandma.svg" id="4_xvexq"]
+
+[sub_resource type="Gradient" id="Gradient_lxo1h"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqpt1"]
+gradient = SubResource("Gradient_lxo1h")
+
+[sub_resource type="SystemFont" id="SystemFont_k1qpv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7k17i"]
+font = SubResource("SystemFont_k1qpv")
+font_size = 161
+font_color = Color(0.717647, 0.435294, 0.8, 1)
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LoseScreen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 322.5)
+scale = Vector2(18.0313, 10.1094)
+texture = SubResource("GradientTexture2D_bqpt1")
+
+[node name="FrogSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(400, 700)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_xrroa")
+script = ExtResource("2_r1rvl")
+
+[node name="Base" type="Sprite2D" parent="FrogSprite"]
+z_index = -1
+position = Vector2(-55.8039, -116.713)
+scale = Vector2(2.16908, 2.1627)
+texture = ExtResource("3_eca6c")
+
+[node name="Fauna" type="Label" parent="."]
+offset_left = 210.0
+offset_top = 13.0
+offset_right = 1084.0
+offset_bottom = 286.0
+text = "You Win!"
+label_settings = SubResource("LabelSettings_7k17i")
+metadata/_edit_use_anchors_ = true
+
+[node name="GrandmaSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1000, 700)
+scale = Vector2(1.5, 1.623)
+texture = ExtResource("4_xvexq")
+script = ExtResource("2_r1rvl")
+
+[node name="Base" type="Sprite2D" parent="GrandmaSprite"]
+z_index = -1
+position = Vector2(-55.8039, -116.713)
+scale = Vector2(2.16908, 2.1627)
+texture = ExtResource("3_eca6c")

@@ -2,6 +2,7 @@ extends Node2D
 
 var request = {}
 var min_timer_amount = 60
+var task_complete = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,10 @@ func _ready():
 		$ProximityElementDisplay.set_data(request)
 
 func make_request(map):
+	request = {"water": 1}
+	$ProximityElementDisplay.set_data(request)
+	return
+	
 	var plants = map.plants
 	if plants.size() == 0:
 		return
@@ -30,10 +35,36 @@ func make_request(map):
 	
 	for plant in new_plants:
 		request = $ElementResolver.merge_elements(request, plant.data.plant_stats)
+		
+	if request == {}:
+		lose()
+		
 	$ProximityElementDisplay.set_data(request)
 		
-func _on_timer_timeout():
+func _on_request_timeout_timer_timeout():
 	var map = get_tree().get_first_node_in_group("map")
 	if map:
 		make_request(map)
-	$Timer.wait_time = (randi() % 5) * 60 + min_timer_amount
+	$RequestTimeoutTimer.wait_time = (randi() % 5) * 60 + min_timer_amount
+
+
+func _on_request_complete_poll_timer_timeout():
+	var cauldron = get_tree().get_first_node_in_group("cauldron_controller")
+	if !task_complete:
+		if cauldron.contents == request:
+			task_complete = true
+			
+	if task_complete:
+		$AnimationPlayer.play("potiontime")
+		if cauldron.contents != {}:
+			cauldron.clear_layer()
+		else:
+			win()
+			
+	$RequestCompletePollTimer.wait_time = 1
+
+func win():
+	print("You win")
+
+func lose():
+	print("You lose")
