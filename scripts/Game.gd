@@ -13,8 +13,6 @@ const TILE_SIZE = 64
 var plants: Array[Plant] = []
 
 func _ready():
-	# Shift player to the center of the world
-	player.position = _tilemap_to_position(Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2))
 	_gen()
 	player.can_walk_to_callback = self._player_can_walk_to
 

@@ -20,8 +20,10 @@ func toggle_inventory():
 	
 func add_plant_to_inventory(plant_data):
 	#Need to proper instantiate and set stuff here
+	print("Pickup entered" + str(plant_data))
 	for child in children:
 		if child.is_empty():
+			print("Picked up" + str(plant_data))
 			child.load_from(plant_data)
 			$Pickup.play()
 			return true

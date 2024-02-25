@@ -5,8 +5,12 @@ var data = {}
 
 var element_node_scene = load("res://scenes/ElementNode.tscn")
 
-func set_data(data):
-	self.data = $ElementResolver.resolve_elements(data)
+func set_data(data, resolve=true):
+	if (resolve):
+		self.data = $ElementResolver.resolve_elements(data)
+	else:
+		self.data = data
+		
 	for child in children:
 		child.queue_free()
 		

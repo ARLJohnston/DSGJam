@@ -9,13 +9,14 @@ func is_empty():
 
 func clear():
 	$DraggableControl.get_node("PlantDataSprites").clear()
+	$DraggableControl.get_node("ElementDisplay").set_data({})
 
 func data_equals(data):
 	return $DraggableControl/PlantDataSprites.data == data
 	
 func load_from(data):
 	$DraggableControl.get_node("PlantDataSprites").load_from(data)
-	$DraggableControl.get_node("ElementDisplay").set_data(data.plant_stats)
+	$DraggableControl.get_node("ElementDisplay").set_data(data.plant_stats, false)
 
 func _on_plant_data_sprites_mouse_entered():
 	if $DraggableControl.get_node("ElementDisplay").data != {}:
