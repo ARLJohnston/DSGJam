@@ -113,7 +113,8 @@ func _gen():
 	used_cells += tilemap.get_used_cells_by_id(0, -1, Vector2i(1, 0))
 	var adjacents = []
 	for cell in used_cells:
-		adjacents += (tilemap.get_surrounding_cells(cell))
+		if randi_range(1, 7) != 5:
+			adjacents += (tilemap.get_surrounding_cells(cell))
 
 	used_cells += adjacents
 
