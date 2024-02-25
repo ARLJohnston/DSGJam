@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcacuteq08ifc"]
+[gd_scene load_steps=5 format=3 uid="uid://bcacuteq08ifc"]
 
 [ext_resource type="Script" path="res://scripts/cauldron.gd" id="1_1s4bk"]
+[ext_resource type="Script" path="res://scripts/CauldronDrag.gd" id="2_2fqhw"]
 [ext_resource type="Script" path="res://scripts/element_resolver.gd" id="2_my16n"]
+[ext_resource type="Texture2D" uid="uid://uvhraxp82jxj" path="res://assets/cauldron.png" id="3_8riwu"]
 
-[node name="Cauldron" type="GridContainer"]
+[node name="Cauldron" type="TextureRect"]
+texture = ExtResource("3_8riwu")
+script = ExtResource("2_2fqhw")
+
+[node name="Controller" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,11 +25,11 @@ grow_vertical = 2
 columns = 5
 script = ExtResource("1_1s4bk")
 
-[node name="ElementResolver" type="Node" parent="."]
+[node name="ElementResolver" type="Node" parent="Controller"]
 script = ExtResource("2_my16n")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Controller"]
 autostart = true
 
-[connection signal="element_merged" from="ElementResolver" to="." method="_on_element_resolver_element_merged"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="element_merged" from="Controller/ElementResolver" to="Controller" method="_on_element_resolver_element_merged"]
+[connection signal="timeout" from="Controller/Timer" to="Controller" method="_on_timer_timeout"]

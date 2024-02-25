@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwm6silf57nhg"]
 
 [ext_resource type="Script" path="res://scripts/Plant.gd" id="1_1ulql"]
-[ext_resource type="PackedScene" path="res://scenes/PlantDataSprites.tscn" id="4_tsg8e"]
+[ext_resource type="PackedScene" uid="uid://ben23m1njao22" path="res://scenes/PlantDataSprites.tscn" id="4_tsg8e"]
 [ext_resource type="PackedScene" uid="uid://r85c3ceisq0f" path="res://scenes/ProximityElementDisplay.tscn" id="6_4rrl4"]
 [ext_resource type="PackedScene" uid="uid://bmideyy4ofabo" path="res://scenes/ElementResolver.tscn" id="7_0qx6e"]
 

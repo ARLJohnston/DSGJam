@@ -8,8 +8,9 @@ var player_in_range = false
 func _ready():
 	plant_types = $ElementResolver.elements_definition.keys()
 	plant_types.erase("null")
+	
 	var plant_stats = {}
-	var dominant_plant_type = plant_types[randi() % plant_types.size()]
+	var dominant_plant_type = get_weighted_type(plant_types)
 	plant_stats[dominant_plant_type] = randi() % 3 + 1
 	var petal_rotation = 360/(plant_stats[dominant_plant_type])
 
@@ -17,7 +18,7 @@ func _ready():
 	var secondary_type = dominant_plant_type
 	if has_secondary_type:
 		while secondary_type == dominant_plant_type:
-			secondary_type = plant_types[randi() % plant_types.size()]
+			secondary_type = get_weighted_type(plant_types)
 			
 		plant_stats[secondary_type] = randi() % plant_stats[dominant_plant_type] + 1
 		petal_rotation = 360/(plant_stats[dominant_plant_type]*plant_stats[secondary_type]) % 360
@@ -32,6 +33,22 @@ func _ready():
 	$ProximityElementDisplay.set_data(plant_stats)
 	$PlantDataSprites.load_from(data)
 
+func get_weighted_type(plant_types):
+	var distribution = randf()
+	var num_common = 4
+	var num_uncommon = 4
+	
+	var plant_type
+	if distribution < 0.6:
+		plant_type = plant_types.slice(0,num_common-1)
+	elif distribution < 0.8:
+		plant_type = plant_types.slice(num_common,num_common+num_uncommon-1)
+	else:
+		plant_type = plant_types.slice(num_common+num_uncommon,plant_types.size()-1)
+		
+	return plant_type[randi() % (plant_type.size()-1)]
+	
+	
 func _input(event):
 	if event.is_action_pressed("pickup") and player_in_range:
 		#Somehow need to connect to inventory

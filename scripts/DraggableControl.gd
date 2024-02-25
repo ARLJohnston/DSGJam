@@ -9,7 +9,7 @@ func _get_drag_data(_position: Vector2):
 	set_drag_preview(prev)
 
 	print("Dragging control")
-	return self
+	return $PlantDataSprites.data
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

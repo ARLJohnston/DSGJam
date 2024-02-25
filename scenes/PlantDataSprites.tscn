@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4e11wqvwccmo"]
+[gd_scene load_steps=4 format=3 uid="uid://ben23m1njao22"]
 
 [ext_resource type="Texture2D" uid="uid://cpni2dnxqi8gr" path="res://assets/flower_base_1.png" id="1_0bjw6"]
 [ext_resource type="Script" path="res://scripts/PlantDataSprites.gd" id="1_5u28l"]

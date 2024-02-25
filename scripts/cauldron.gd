@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 @export var contents = {}
 @export var child_nodes = {}
@@ -58,7 +58,6 @@ func _on_element_resolver_element_merged(first, second, result):
 func _on_element_resolver_element_added(element):
 	print("Added element " + element)
 	animation_queue.append([["add", element]])
-
-
+	
 func _on_timer_timeout():
 	animation_processing = false
