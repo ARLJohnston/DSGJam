@@ -11,7 +11,7 @@ const PLANTS_ON_MAP = 10
 const BASE_SIZE = Vector2i(128, 128)
 const TILE_SIZE = 64
 const ORIGIN = Vector2i(BASE_SIZE.x / 2, BASE_SIZE.y / 2)
-const MAX_SPIKES_PER_PATH = 10
+const MAX_SPIKES_PER_PATH = 15
 
 var plants: Array[Plant] = []
 
@@ -27,7 +27,7 @@ func _gen():
 		0.66: 2,
 		1.0: 3,
 	}
-	
+
 	const tiles_after_path = {
 		0.7: 1,
 		0.8: 2,
@@ -105,7 +105,7 @@ func _gen():
 		for x in range(-1, 2):
 			for y in range(-1, 2):
 				tilemap.set_cell(0, plant_tilemap_position + Vector2i(x, y), 2, Vector2(3, 0))
-	
+
 	tilemap.update_internals()
 	var array = []
 	var used_cells = tilemap.get_used_cells_by_id(0, -1, Vector2i(3, 0))
@@ -114,9 +114,9 @@ func _gen():
 	var adjacents = []
 	for cell in used_cells:
 		adjacents += (tilemap.get_surrounding_cells(cell))
-	
+
 	used_cells += adjacents
-	
+
 	noise.seed = randi()
 	for x in (BASE_SIZE.x):
 		for y in (BASE_SIZE.y):
@@ -133,7 +133,7 @@ func _gen():
 	for x in range(-2, 3):
 		for y in range(-2, 3):
 			tilemap.set_cell(0, ORIGIN + Vector2i(x, y), 2, Vector2(3, 0))
-				
+
 
 func _position_to_tilemap(pos: Vector2) -> Vector2i:
 	return Vector2i(int(pos.x / TILE_SIZE), int(pos.y / TILE_SIZE))

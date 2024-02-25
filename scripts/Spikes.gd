@@ -35,4 +35,4 @@ func _on_area_2d_body_entered(body):
 
 func _check_if_player_is_dead():
 	if _player_inside and _spikes_active:
-		print("Player is dead!")
+		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
