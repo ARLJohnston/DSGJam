@@ -46,7 +46,7 @@ func _gen():
 		var new_plant = plant_scene.instantiate()
 
 		var plant_dir = Vector2(cos(i * 2 * PI / PLANTS_ON_MAP), sin(i * 2 * PI / PLANTS_ON_MAP)).normalized()
-		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(10, 30)))
+		var plant_pos = Vector2i(BASE_SIZE / 2 + Vector2i(plant_dir * randf_range(30, 55)))
 		new_plant.position = _tilemap_to_position(Vector2i(plant_pos.x, plant_pos.y))
 
 		add_child(new_plant)
@@ -130,8 +130,8 @@ func _gen():
 						break
 
 	# Place ground around the base origin.
-	for x in range(-2, 3):
-		for y in range(-2, 3):
+	for x in range(-3, 4):
+		for y in range(-3, 4):
 			tilemap.set_cell(0, ORIGIN + Vector2i(x, y), 2, Vector2(3, 0))
 
 
