@@ -23,6 +23,4 @@ func _on_plant_data_sprites_mouse_entered():
 		$DraggableControl.get_node("ElementDisplay").visible = true
 
 func _on_plant_data_sprites_mouse_exited():
-	#var mouse_is_inside = self.get_global_rect().has_point(self.get_global_mouse_position())
-	#if !mouse_is_inside:
-		$DraggableControl.get_node("ElementDisplay").visible = false
+	$DraggableControl.get_node("ElementDisplay").visible = false

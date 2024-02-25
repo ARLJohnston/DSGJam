@@ -62,7 +62,7 @@ func test_complex_resolve_with_respect_to_elements():
 
 func test_merge_elements():
 	var existing_pool = {"mud": 2, "fire": 3}
-	var additional_stuff = {"air": 1}
-	var expected = {"lightning": 1, "clay": 2}
+	var additional_stuff = {"air": 2}
+	var expected = {"lightning": 2, "clay": 1, "mud": 1}
 	var result = resolver.merge_elements(additional_stuff, existing_pool, ["air", "water"])
 	assert_eq(result, expected)

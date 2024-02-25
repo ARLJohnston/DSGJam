@@ -51,6 +51,16 @@ func add_flower(flower_data):
 	print("Added flower data: " + str(flower_data))
 	contents = $ElementResolver.merge_elements(flower_data, contents)
 
+func clear_layer():
+	var to_queue = []
+	for entry in contents.keys():
+		contents[entry] -= 1
+		if contents[entry] <= 0:
+			contents.erase(entry)
+		to_queue.append(["remove", entry])
+	
+	animation_queue.append(to_queue)
+
 func _on_element_resolver_element_merged(first, second, result):
 	print("Merged anim for ("+first+","+second+","+result+") to queue.")
 	animation_queue.append([["remove", first], ["remove", second], ["add", result]])
@@ -61,3 +71,4 @@ func _on_element_resolver_element_added(element):
 	
 func _on_timer_timeout():
 	animation_processing = false
+	
