@@ -124,7 +124,7 @@ func _gen():
 				var noise_at_point = (noise.get_noise_2d(x * 4.0, y * 4.0) + 1.0) / 2.0
 				var tile_type = threshold_to_tiles.values()[0]
 				for threshold in threshold_to_tiles.keys():
-					if noise_at_point > threshold:
+					if noise_at_point < threshold:
 						tile_type = threshold_to_tiles[threshold]
 						tilemap.set_cell(0, Vector2i(x, y), 2, Vector2i(tile_type, 0))
 						break
