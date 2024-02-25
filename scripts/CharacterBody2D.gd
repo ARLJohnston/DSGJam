@@ -17,6 +17,10 @@ func _can_walk_to_noop(pos_) -> bool:
 
 func _ready():
 	position = Vector2(20, -20)
+	var map_group = get_tree().get_nodes_in_group("map")
+	if map_group.size() > 0:
+		var map = map_group[0]
+		position = map._tilemap_to_position(Vector2i(map.BASE_SIZE.x / 2, map.BASE_SIZE.y / 2))
 	new_position = position
 
 func get_input():

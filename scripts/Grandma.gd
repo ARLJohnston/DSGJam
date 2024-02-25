@@ -3,6 +3,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	
 	$ProximityElementDisplay.set_data({"ice": 5})
 
 

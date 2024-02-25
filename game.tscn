@@ -32,7 +32,7 @@ custom_data_layer_0/type = 1
 sources/1 = SubResource("TileSetAtlasSource_8i641")
 sources/2 = SubResource("TileSetAtlasSource_53jj7")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["map"]]
 script = ExtResource("1_cnoye")
 
 [node name="TileMap" type="TileMap" parent="."]
