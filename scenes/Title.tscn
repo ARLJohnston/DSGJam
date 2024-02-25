@@ -29,9 +29,11 @@ particles_anim_loop = false
 lifetime_randomness = 0.5
 angle_min = -45.0
 angle_max = 45.0
+inherit_velocity_ratio = 10.0
+direction = Vector3(2, 0, 0)
 spread = 90.0
-initial_velocity_min = -135.0
-initial_velocity_max = 135.0
+initial_velocity_min = -150.0
+initial_velocity_max = 150.0
 gravity = Vector3(0, 98, 0)
 anim_offset_max = 1.0
 
@@ -101,7 +103,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Particles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_jl51s")
 position = Vector2(579, 416)
-amount = 20
+amount = 60
 process_material = SubResource("ParticleProcessMaterial_hhqe6")
 texture = ExtResource("8_w6atc")
 lifetime = 10.0

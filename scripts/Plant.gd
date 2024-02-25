@@ -14,7 +14,7 @@ func _ready():
 	plant_stats[dominant_plant_type] = randi() % 3 + 1
 	var petal_rotation = 360/(plant_stats[dominant_plant_type])
 
-	var has_secondary_type = randf() < 0.5
+	var has_secondary_type = randf() < 0.8
 	var secondary_type = dominant_plant_type
 	if has_secondary_type:
 		while secondary_type == dominant_plant_type:
@@ -39,9 +39,9 @@ func get_weighted_type(plant_types):
 	var num_uncommon = 4
 	
 	var plant_type
-	if distribution < 0.6:
+	if distribution < 0.8:
 		plant_type = plant_types.slice(0,num_common-1)
-	elif distribution < 0.8:
+	elif distribution < 0.95:
 		plant_type = plant_types.slice(num_common,num_common+num_uncommon-1)
 	else:
 		plant_type = plant_types.slice(num_common+num_uncommon,plant_types.size()-1)

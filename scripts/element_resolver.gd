@@ -53,11 +53,12 @@ func merge_elements(to_add, element_pool, to_add_order=to_add.keys()):
 			continue
 			
 		if new_pool.has(new_element):
-			new_pool[new_element] += 1;
+			new_pool[new_element] += to_add[new_element];
 		else:
-			new_pool[new_element] = 1;
+			new_pool[new_element] = to_add[new_element];
 			
-		element_added.emit(new_element)
+		for i in range(0, to_add[new_element]):
+			element_added.emit(new_element)
 	print(new_pool)
 	var order = to_add_order.duplicate()
 	new_pool = resolve_elements(new_pool, order)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1w1gn33rg3mr"]
+[gd_scene load_steps=6 format=3 uid="uid://duljjpg03kmmi"]
 
 [ext_resource type="Script" path="res://scripts/InventoryItem.gd" id="1_d72dl"]
-[ext_resource type="PackedScene" uid="uid://c4e11wqvwccmo" path="res://scenes/PlantDataSprites.tscn" id="1_gnlxc"]
+[ext_resource type="PackedScene" uid="uid://ben23m1njao22" path="res://scenes/PlantDataSprites.tscn" id="1_gnlxc"]
 [ext_resource type="Texture2D" uid="uid://cluw70la5tyrj" path="res://assets/box.png" id="2_0k2fj"]
 [ext_resource type="Script" path="res://scripts/DraggableControl.gd" id="2_wyy8a"]
 [ext_resource type="PackedScene" uid="uid://cq6yx2mr1jebo" path="res://scenes/ElementDisplay.tscn" id="5_idxhu"]

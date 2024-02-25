@@ -2,7 +2,7 @@ extends Control
 
 var inventory_item_scene = load("res://scenes/InventoryItem.tscn")
 
-var children = []
+@export var children = []
 
 func _ready():
 	var player_grouped = get_tree().get_nodes_in_group("player")
@@ -10,13 +10,20 @@ func _ready():
 		player.connect("toggle_inventory", toggle_inventory)
 		
 	for i in range(9*3):
-		var child = inventory_item_scene.instantiate()
-		child.clear()
-		$MarginContainer.get_node("GridContainer").add_child(child)
-		children.append(child)
+		add_new_child()
+		
+func add_new_child():
+	var child = inventory_item_scene.instantiate()
+	child.clear()
+	$MarginContainer.get_node("GridContainer").add_child(child)
+	children.append(child)
 		
 func toggle_inventory():
 	self.visible = !self.visible
+	
+	var map = get_tree().get_first_node_in_group("map")
+	if map:
+		children[0].load_from(map.plants.pick_random().data)
 	
 func add_plant_to_inventory(plant_data):
 	#Need to proper instantiate and set stuff here
@@ -32,4 +39,7 @@ func add_plant_to_inventory(plant_data):
 func remove_plant(plant_data):
 	for child in children:
 		if child.data_equals(plant_data):
-			child.clear()
+			child.queue_free()
+			children.erase(child)
+			add_new_child()
+			break
