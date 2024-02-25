@@ -2,8 +2,8 @@ extends Node2D
 
 var player_tween
 var grandma_tween
-var frog_start = Vector2(480,800)
-var grandma_start = Vector2(1200, 828)
+var frog_start = Vector2(380,700)
+var grandma_start = Vector2(1000, 700)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

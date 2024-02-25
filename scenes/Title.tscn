@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bg27ffl0vanyp"]
+[gd_scene load_steps=13 format=3 uid="uid://ds5ndr3dd0oej"]
 
 [ext_resource type="Script" path="res://scripts/Title.gd" id="1_r01wp"]
 [ext_resource type="Texture2D" uid="uid://d3gy2xh34u058" path="res://assets/title_bg.svg" id="2_ufye1"]
@@ -13,7 +13,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_reuxa"]
 font = SubResource("SystemFont_k1qpv")
-font_size = 200
+font_size = 161
 outline_size = 45
 outline_color = Color(0, 0, 0, 1)
 
@@ -38,14 +38,14 @@ position = Vector2(1, 0)
 script = ExtResource("1_r01wp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(726.889, 406)
-scale = Vector2(0.759259, 0.759259)
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.609259)
 texture = ExtResource("2_ufye1")
 
 [node name="FrogSprite" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(480, 800)
-scale = Vector2(2, 2)
+position = Vector2(380, 700)
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("3_bdqdj")
 script = ExtResource("4_dwqfa")
 
@@ -56,14 +56,14 @@ scale = Vector2(2.16908, 2.1627)
 texture = ExtResource("5_5wxi0")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(372, 685.217)
-scale = Vector2(4.44643, 4.80953)
+position = Vector2(289, 584)
+scale = Vector2(3.72322, 4.9381)
 texture = ExtResource("6_8ftx2")
 
 [node name="GrandmaSprite" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(1200, 828.088)
-scale = Vector2(2, 2.164)
+position = Vector2(1000, 700)
+scale = Vector2(1.5, 1.623)
 texture = ExtResource("7_6p4pa")
 script = ExtResource("4_dwqfa")
 
@@ -74,29 +74,29 @@ scale = Vector2(2.16908, 2.1627)
 texture = ExtResource("5_5wxi0")
 
 [node name="Shadow2" type="Sprite2D" parent="."]
-position = Vector2(1090.92, 692)
-scale = Vector2(4.661, 5.453)
+position = Vector2(917, 605)
+scale = Vector2(3.21994, 2.66325)
 texture = ExtResource("6_8ftx2")
 
 [node name="Rogue" type="Label" parent="."]
-offset_left = 93.0
-offset_top = 46.0
-offset_right = 696.0
-offset_bottom = 319.0
+offset_left = 39.0
+offset_top = 106.0
+offset_right = 642.0
+offset_bottom = 379.0
 text = "Rogue"
 label_settings = SubResource("LabelSettings_reuxa")
 
 [node name="Fauna" type="Label" parent="."]
-offset_left = 774.0
-offset_top = 100.0
-offset_right = 1366.0
-offset_bottom = 373.0
+offset_left = 614.0
+offset_top = 158.0
+offset_right = 1206.0
+offset_bottom = 431.0
 text = "Fauna"
 label_settings = SubResource("LabelSettings_reuxa")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_jl51s")
-position = Vector2(713, 516)
+position = Vector2(579, 416)
 process_material = SubResource("ParticleProcessMaterial_hhqe6")
 texture = ExtResource("8_w6atc")
 lifetime = 2.5
