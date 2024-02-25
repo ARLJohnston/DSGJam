@@ -36,7 +36,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Controller" type="GridContainer" parent="ElementDisplay/MarginContainer"]
+[node name="Controller" type="GridContainer" parent="ElementDisplay/MarginContainer" groups=["cauldron_controller"]]
 layout_mode = 2
 columns = 5
 script = ExtResource("1_1s4bk")
