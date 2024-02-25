@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds5ndr3dd0oej"]
+[gd_scene load_steps=13 format=3 uid="uid://bg27ffl0vanyp"]
 
 [ext_resource type="Script" path="res://scripts/Title.gd" id="1_r01wp"]
 [ext_resource type="Texture2D" uid="uid://d3gy2xh34u058" path="res://assets/title_bg.svg" id="2_ufye1"]
@@ -97,10 +97,10 @@ label_settings = SubResource("LabelSettings_reuxa")
 [node name="Particles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_jl51s")
 position = Vector2(579, 416)
+amount = 20
 process_material = SubResource("ParticleProcessMaterial_hhqe6")
 texture = ExtResource("8_w6atc")
-lifetime = 2.5
-explosiveness = 0.13
+lifetime = 10.0
 randomness = 0.5
 fixed_fps = 0
 draw_order = 0
