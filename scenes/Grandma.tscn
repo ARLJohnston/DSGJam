@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd1q0xpv3nrij"]
+[gd_scene load_steps=7 format=3 uid="uid://cd1q0xpv3nrij"]
 
 [ext_resource type="Script" path="res://scripts/Grandma.gd" id="1_6rxq5"]
 [ext_resource type="Texture2D" uid="uid://bc0h245gfsqil" path="res://assets/grandma.png" id="1_woi0q"]
 [ext_resource type="Texture2D" uid="uid://ckxfegxj2bctp" path="res://assets/frog_base.png" id="2_ayfh7"]
 [ext_resource type="PackedScene" uid="uid://r85c3ceisq0f" path="res://scenes/ProximityElementDisplay.tscn" id="4_rech2"]
 [ext_resource type="PackedScene" uid="uid://bcacuteq08ifc" path="res://scenes/Cauldron.tscn" id="5_tv6m3"]
+[ext_resource type="PackedScene" uid="uid://bmideyy4ofabo" path="res://scenes/ElementResolver.tscn" id="6_8e0py"]
 
 [node name="Grandma" type="Node2D"]
 script = ExtResource("1_6rxq5")
@@ -20,7 +21,14 @@ texture = ExtResource("2_ayfh7")
 [node name="ProximityElementDisplay" parent="." instance=ExtResource("4_rech2")]
 
 [node name="Cauldron" parent="." instance=ExtResource("5_tv6m3")]
-offset_left = 152.0
-offset_top = -129.0
-offset_right = 408.0
-offset_bottom = 121.0
+offset_left = 170.0
+offset_top = -34.0
+offset_right = 234.0
+offset_bottom = 29.0
+
+[node name="ElementResolver" parent="." instance=ExtResource("6_8e0py")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
