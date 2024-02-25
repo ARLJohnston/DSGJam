@@ -26,6 +26,12 @@ func _gen():
 		0.66: 2,
 		1.0: 3,
 	}
+	
+	const tiles_after_path = {
+		0.7: 1,
+		0.8: 2,
+		0.9: 3,
+	}
 
 	var noise = FastNoiseLite.new()
 	noise.seed = randi()
@@ -74,11 +80,33 @@ func _gen():
 		for x in range(-1, 2):
 			for y in range(-1, 2):
 				tilemap.set_cell(0, plant_tilemap_position + Vector2i(x, y), 2, Vector2(3, 0))
+	
+	tilemap.update_internals()
+	var array = []
+	var used_cells = tilemap.get_used_cells_by_id(0, -1, Vector2i(3, 0))
+	var adjacents = []
+	for cell in used_cells:
+		adjacents.append(tilemap.get_surrounding_cells(cell))
+	
+	used_cells += adjacents
+	
+	noise.seed = randi()
+	for x in (BASE_SIZE.x):
+		for y in (BASE_SIZE.y):
+			if Vector2i(x, y) not in used_cells:
+				var noise_at_point = (noise.get_noise_2d(x * 4.0, y * 4.0) + 1.0) / 2.0
+				var tile_type = tiles_after_path.values()[0]
+				for threshold in tiles_after_path.keys():
+					if noise_at_point > threshold:
+						tile_type = tiles_after_path[threshold]
+						tilemap.set_cell(0, Vector2i(x, y), 2, Vector2i(tile_type, 0))
+						break
 
 	# Place ground around the base origin.
 	for x in range(-2, 3):
 		for y in range(-2, 3):
 			tilemap.set_cell(0, ORIGIN + Vector2i(x, y), 2, Vector2(3, 0))
+				
 
 func _position_to_tilemap(pos: Vector2) -> Vector2i:
 	return Vector2i(int(pos.x / TILE_SIZE), int(pos.y / TILE_SIZE))

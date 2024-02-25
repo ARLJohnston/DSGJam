@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c170fn7l8lhgg" path="res://assets/frog.png" id="3_asog5"]
 [ext_resource type="Script" path="res://scripts/FrogSprite.gd" id="4_kx8jx"]
 [ext_resource type="Texture2D" uid="uid://ckxfegxj2bctp" path="res://assets/frog_base.png" id="5_r8gcu"]
-[ext_resource type="AudioStream" uid="uid://dpbn4b5lwont" path="res://sound/jump.wav" id="6_got3r"]
+[ext_resource type="AudioStream" uid="uid://dpbn4b5lwont" path="res://sound/jump.wav" id="6_y767o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05268"]
 size = Vector2(64, 56)
@@ -112,4 +112,5 @@ scale = Vector2(10, 10)
 texture = SubResource("GradientTexture2D_jq5y7")
 
 [node name="Bounce" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_got3r")
+stream = ExtResource("6_y767o")
+volume_db = -16.865
