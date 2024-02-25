@@ -1,6 +1,6 @@
 extends Node
 
-var data
+@export var data : PlantData
 	
 func is_empty():
 	return data == null

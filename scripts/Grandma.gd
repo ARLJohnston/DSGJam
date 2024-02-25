@@ -7,7 +7,7 @@ var min_timer_amount = 60
 func _ready():
 	var map = get_tree().get_first_node_in_group("map")
 	if map:
-		self.position = map._tilemap_to_position(Vector2i(map.BASE_SIZE.x / 2, map.BASE_SIZE.y / 2))
+		self.position = map._tilemap_to_position(Vector2i(map.BASE_SIZE.x / 2 - 1, map.BASE_SIZE.y / 2))
 		make_request(map)
 	else:
 		request = {"ice": 5}

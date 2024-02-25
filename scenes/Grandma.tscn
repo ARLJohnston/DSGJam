@@ -21,14 +21,15 @@ texture = ExtResource("2_ayfh7")
 [node name="ProximityElementDisplay" parent="." instance=ExtResource("4_rech2")]
 
 [node name="Cauldron" parent="." instance=ExtResource("5_tv6m3")]
-offset_left = 170.0
+offset_left = 78.0
 offset_top = -34.0
-offset_right = 234.0
+offset_right = 142.0
 offset_bottom = 29.0
 
 [node name="ElementResolver" parent="." instance=ExtResource("6_8e0py")]
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

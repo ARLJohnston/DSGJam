@@ -3,7 +3,7 @@ extends Control
 var PlantDataSprites = load("res://scenes/PlantDataSprites.tscn")
 
 func _get_drag_data(_position: Vector2):
-	var prev = self.duplicate()
+	var prev = $PlantDataSprites.duplicate()
 	prev.z_index = 25
 	$PlantDataSprites.hide()
 	set_drag_preview(prev)

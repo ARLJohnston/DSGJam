@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://bg27ffl0vanyp"]
+
+[ext_resource type="Script" path="res://scripts/Title.gd" id="1_r01wp"]
+[ext_resource type="Texture2D" uid="uid://d3gy2xh34u058" path="res://assets/title_bg.svg" id="2_ufye1"]
+[ext_resource type="Texture2D" uid="uid://d4nb7j88to346" path="res://assets/frog.svg" id="3_bdqdj"]
+[ext_resource type="Script" path="res://scripts/FrogSprite.gd" id="4_dwqfa"]
+[ext_resource type="Texture2D" uid="uid://ckxfegxj2bctp" path="res://assets/frog_base.png" id="5_5wxi0"]
+[ext_resource type="Texture2D" uid="uid://bnnsvuradd2dn" path="res://assets/shadow.png" id="6_8ftx2"]
+[ext_resource type="Texture2D" uid="uid://bedcyuv5i8qae" path="res://assets/grandma.svg" id="7_6p4pa"]
+[ext_resource type="Texture2D" uid="uid://cyeupy4pi2t7g" path="res://assets/particles.png" id="8_w6atc"]
+
+[sub_resource type="SystemFont" id="SystemFont_k1qpv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_reuxa"]
+font = SubResource("SystemFont_k1qpv")
+font_size = 161
+outline_size = 45
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jl51s"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhqe6"]
+lifetime_randomness = 0.5
+angle_min = -45.0
+angle_max = 45.0
+spread = 90.0
+initial_velocity_min = -135.0
+initial_velocity_max = 135.0
+gravity = Vector3(0, 98, 0)
+anim_offset_max = 1.0
+
+[node name="Title" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_r01wp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.609259)
+texture = ExtResource("2_ufye1")
+
+[node name="FrogSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(380, 700)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_bdqdj")
+script = ExtResource("4_dwqfa")
+
+[node name="Base" type="Sprite2D" parent="FrogSprite"]
+z_index = -1
+position = Vector2(-55.8039, -116.713)
+scale = Vector2(2.16908, 2.1627)
+texture = ExtResource("5_5wxi0")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(289, 584)
+scale = Vector2(3.72322, 4.9381)
+texture = ExtResource("6_8ftx2")
+
+[node name="GrandmaSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1000, 700)
+scale = Vector2(1.5, 1.623)
+texture = ExtResource("7_6p4pa")
+script = ExtResource("4_dwqfa")
+
+[node name="Base" type="Sprite2D" parent="GrandmaSprite"]
+z_index = -1
+position = Vector2(-55.8039, -116.713)
+scale = Vector2(2.16908, 2.1627)
+texture = ExtResource("5_5wxi0")
+
+[node name="Shadow2" type="Sprite2D" parent="."]
+position = Vector2(917, 605)
+scale = Vector2(3.21994, 2.66325)
+texture = ExtResource("6_8ftx2")
+
+[node name="Rogue" type="Label" parent="."]
+offset_left = 39.0
+offset_top = 106.0
+offset_right = 642.0
+offset_bottom = 379.0
+text = "Rogue"
+label_settings = SubResource("LabelSettings_reuxa")
+
+[node name="Fauna" type="Label" parent="."]
+offset_left = 614.0
+offset_top = 158.0
+offset_right = 1206.0
+offset_bottom = 431.0
+text = "Fauna"
+label_settings = SubResource("LabelSettings_reuxa")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_jl51s")
+position = Vector2(579, 416)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_hhqe6")
+texture = ExtResource("8_w6atc")
+lifetime = 10.0
+randomness = 0.5
+fixed_fps = 0
+draw_order = 0

@@ -16,7 +16,7 @@ const MAX_SPIKES_PER_PATH = 10
 var plants: Array[Plant] = []
 
 func _ready():
-	# Shift player to the center of the world
+	_gen()
 	player.can_walk_to_callback = self._player_can_walk_to
 	_gen()
 

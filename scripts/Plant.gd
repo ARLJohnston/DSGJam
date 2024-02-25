@@ -30,7 +30,7 @@ func _ready():
 	
 	data = PlantData.new(plant_stats, petal_rotation, main_sprite, main_color, petal_sprite, petal_color)
 	
-	$ProximityElementDisplay.set_data(plant_stats)
+	$ProximityElementDisplay.set_data(plant_stats, false)
 	$PlantDataSprites.load_from(data)
 
 func get_weighted_type(plant_types):
@@ -52,10 +52,10 @@ func get_weighted_type(plant_types):
 func _input(event):
 	if event.is_action_pressed("pickup") and player_in_range:
 		#Somehow need to connect to inventory
-		var inventory_group = get_tree().get_nodes_in_group("inventory")
-		if inventory_group.size() > 0:
-			var result = inventory_group[0].add_plant_to_inventory(data)
-			if result:
+		var inventory = get_tree().get_first_node_in_group("inventory")
+		if inventory:
+			var result = inventory.add_plant_to_inventory(data)
+			if result == true:
 				self.queue_free()
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):

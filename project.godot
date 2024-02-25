@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="RogueFauna"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scenes/Title.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/icon.png"
 config/macos_native_icon="res://assets/icon.png"
 config/windows_native_icon="res://assets/icon.ico"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
